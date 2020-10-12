@@ -1,0 +1,26 @@
+{
+  "name": "PataGucci",
+  "version": "1.0.0",
+  "description": "Hiking Trails Just For You App for CS361 OSU FALL2020",
+  "main": "server.js",
+  "repository": "https://github.com/johnsoph/HikingTrailsJustForYou.git",
+  "license": "MIT",
+
+  "scripts": {
+    "dev": "run-p dev:**",
+    "dev:server": "nodemon server.js",
+    "dev:app": "cd client && yarn start",
+    "build:app": "cd client && yarn build",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3",
+    "npm-run-all": "^4.1.5"
+  }
+}
