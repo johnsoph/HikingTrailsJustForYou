@@ -28,7 +28,7 @@
 // export default App;
 
 // This is just a test page with the post hookup to react backed.
-// The above commented out code is the better init page using the functions 
+// The above commented out code is the better init page using the functions
 // and newer react typescript code
 
 import React, { Component } from 'react';
@@ -100,7 +100,7 @@ class Home extends Component {
               value={this.state.post}
               onChange={e => this.setState({ post: e.target.value })}
             />
-            <button type="submit">Submit</button>
+            <button type="submit">Push Me</button>
           </form>
           <p>{this.state.responseToPost}</p>
         </header>
