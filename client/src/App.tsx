@@ -107,25 +107,67 @@ class Home extends Component {
       </div>*/
 
         <div className="App">
+
           <header className="App-header">
             <p className="Title"> PATAGUCCI </p>
             <button className="Login-Button"> Login </button>
             <button className="SignUp-Button"> Sign Up </button>
           </header>
-          <body className="App-body">
-            <p> Find Hiking Trails and Patagucci Gear Recommended for You! </p>
+
+          <body className="App-filter">
+            <p> Find Hiking Trails and PataGucci Gear Recommended for You! </p>
+
             <select name="hiking_vibe" id="hiking_vibe">
               <option value="easy_and_chill">Easy and Chill</option>
               <option value="best_match">Best Match My Fitness Level</option>
               <option value="challenge_me">Challenge Me</option>
             </select>
+
             <input type="text" placeholder="Zip Code"/>
             <p> Just For You Hikes </p>
+
             <label className="switch">
               <input type="checkbox"/>
               <span className="slider round"></span>
             </label>
+
           </body>
+          <div className="HikesAndInfo">
+
+            <div className="hikeList">
+              <div className="hike">
+                <h1> Trail Name </h1>
+                <p> Description </p>
+              </div>
+
+              <div className="hike">
+                <h1> Trail Name </h1>
+                <p> Description </p>
+              </div>
+
+              <div className="hike">
+                <h1> Trail Name </h1>
+                <p> Description </p>
+              </div>
+            </div>
+
+            <div className="InfoList">
+              <div className="InfoPanel">
+              <p> Hiking Difficulty: </p>
+              <p> Dog Friendly: </p>
+              <button className="navigateButton"> Navigate </button>
+              </div>
+
+              <div className="RecommendedGear">
+              <button className="gearList"> Recommended PataGucci Gear </button>
+              </div>
+
+              <div className="Map">
+              <h1> MAP </h1>
+              </div>
+            </div>
+
+          </div>
         </div>
     );
   }

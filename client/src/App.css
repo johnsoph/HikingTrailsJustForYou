@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  //text-align: center;
+  background-color: #556B2F;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -31,8 +33,18 @@
   justify-content: center;
 }
 
+.App-filter{
+  //background-color: #556B2F;
+  //min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
 .App-body{
-  background-color: #556B2F;
+  //background-color: #556B2F;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -44,6 +56,65 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.HikesAndInfo{
+  display:flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.hikeList{
+  flex-flow: column;
+  justify-content: flex-start;
+  flex-grow: 2;
+}
+
+.InfoList{
+  flex-flow: column;
+  justify-content: space-around;
+  flex-grow: 2;
+}
+
+.RecommendedGear{
+  border-radius: 25px;
+  border: 1px outset black;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.InfoPanel{
+  border-radius: 25px;
+  border: 1px outset black;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.hike{
+  border-radius: 25px;
+  border: 1px outset black;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.Map{
+  border-radius: 25px;
+  border: 1px outset black;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  max-height: 800px;
+  margin: auto;
 }
 
 @keyframes App-logo-spin {
