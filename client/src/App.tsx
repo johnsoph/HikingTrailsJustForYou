@@ -76,7 +76,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="App">
+      /*<div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -104,7 +104,29 @@ class Home extends Component {
           </form>
           <p>{this.state.responseToPost}</p>
         </header>
-      </div>
+      </div>*/
+
+        <div className="App">
+          <header className="App-header">
+            <p className="Title"> PATAGUCCI </p>
+            <button className="Login-Button"> Login </button>
+            <button className="SignUp-Button"> Sign Up </button>
+          </header>
+          <body className="App-body">
+            <p> Find Hiking Trails and Patagucci Gear Recommended for You! </p>
+            <select name="hiking_vibe" id="hiking_vibe">
+              <option value="easy_and_chill">Easy and Chill</option>
+              <option value="best_match">Best Match My Fitness Level</option>
+              <option value="challenge_me">Challenge Me</option>
+            </select>
+            <input type="text" placeholder="Zip Code"/>
+            <p> Just For You Hikes </p>
+            <label className="switch">
+              <input type="checkbox"/>
+              <span className="slider round"></span>
+            </label>
+          </body>
+        </div>
     );
   }
 }
