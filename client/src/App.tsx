@@ -28,7 +28,7 @@
 // export default App;
 
 // This is just a test page with the post hookup to react backed.
-// The above commented out code is the better init page using the functions 
+// The above commented out code is the better init page using the functions
 // and newer react typescript code
 
 import React, { Component } from 'react';
@@ -76,7 +76,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="App">
+      /*<div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -100,11 +100,75 @@ class Home extends Component {
               value={this.state.post}
               onChange={e => this.setState({ post: e.target.value })}
             />
-            <button type="submit">Submit</button>
+            <button type="submit">Push Me</button>
           </form>
           <p>{this.state.responseToPost}</p>
         </header>
-      </div>
+      </div>*/
+
+        <div className="App">
+
+          <header className="App-header">
+            <p className="Title"> PATAGUCCI </p>
+            <button className="Login-Button"> Login </button>
+            <button className="SignUp-Button"> Sign Up </button>
+          </header>
+
+          <body className="App-filter">
+            <p> Find Hiking Trails and PataGucci Gear Recommended for You! </p>
+
+            <select name="hiking_vibe" id="hiking_vibe">
+              <option value="easy_and_chill">Easy and Chill</option>
+              <option value="best_match">Best Match My Fitness Level</option>
+              <option value="challenge_me">Challenge Me</option>
+            </select>
+
+            <input type="text" placeholder="Zip Code"/>
+            <p> Just For You Hikes </p>
+
+            <label className="switch">
+              <input type="checkbox"/>
+              <span className="slider round"></span>
+            </label>
+
+          </body>
+          <div className="HikesAndInfo">
+
+            <div className="hikeList">
+              <div className="hike">
+                <h1> Trail Name </h1>
+                <p> Description </p>
+              </div>
+
+              <div className="hike">
+                <h1> Trail Name </h1>
+                <p> Description </p>
+              </div>
+
+              <div className="hike">
+                <h1> Trail Name </h1>
+                <p> Description </p>
+              </div>
+            </div>
+
+            <div className="InfoList">
+              <div className="InfoPanel">
+              <p> Hiking Difficulty: </p>
+              <p> Dog Friendly: </p>
+              <button className="navigateButton"> Navigate </button>
+              </div>
+
+              <div className="RecommendedGear">
+              <button className="gearList"> Recommended PataGucci Gear </button>
+              </div>
+
+              <div className="Map">
+              <h1> MAP </h1>
+              </div>
+            </div>
+
+          </div>
+        </div>
     );
   }
 }

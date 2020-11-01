@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  //text-align: center;
+  background-color: #556B2F;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -14,7 +16,35 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #bf935a;
+  //min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-filter{
+  //background-color: #556B2F;
+  //min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-body{
+  //background-color: #556B2F;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,6 +58,65 @@
   color: #61dafb;
 }
 
+.HikesAndInfo{
+  display:flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.hikeList{
+  flex-flow: column;
+  justify-content: flex-start;
+  flex-grow: 2;
+}
+
+.InfoList{
+  flex-flow: column;
+  justify-content: space-around;
+  flex-grow: 2;
+}
+
+.RecommendedGear{
+  border-radius: 25px;
+  border: 1px outset black;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.InfoPanel{
+  border-radius: 25px;
+  border: 1px outset black;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.hike{
+  border-radius: 25px;
+  border: 1px outset black;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.Map{
+  border-radius: 25px;
+  border: 1px outset black;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  max-height: 800px;
+  margin: auto;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +124,64 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
