@@ -96,6 +96,14 @@
   margin: auto;
 }
 
+.InfoList{
+  display: none;
+}
+
+.visable{
+  display: flex;
+}
+
 .hike{
   border-radius: 25px;
   border: 1px outset black;

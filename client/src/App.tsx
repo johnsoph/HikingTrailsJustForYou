@@ -74,6 +74,7 @@ class Home extends Component {
     this.setState({ responseToPost: body });
   };
 
+  clickedHike = event => event.InfoList.classList.add('visable');
   render() {
     return (
       /*<div className="App">
@@ -106,6 +107,7 @@ class Home extends Component {
         </header>
       </div>*/
 
+
         <div className="App">
 
           <header className="App-header">
@@ -135,7 +137,7 @@ class Home extends Component {
           <div className="HikesAndInfo">
 
             <div className="hikeList">
-              <div className="hike">
+              <div className="hike" onClick={this.clickedHike}>
                 <h1> Trail Name </h1>
                 <p> Description </p>
               </div>
