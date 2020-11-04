@@ -1,130 +1,77 @@
-.App {
-  //text-align: center;
-  background-color: #556B2F;
-  min-height: 100vh;
+*,*::before, *::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 15vh 15vh 1fr;
+  grid-template-areas:
+    "title title"
+    "filter filter"
+    "hikes info";
+  height: 100vh;
+  width: 100vw;
+  background-color: #DADADA
 }
 
-.App-header {
-  background-color: #bf935a;
-  //min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-end;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.Title{
+.filterBar{
+  grid-area: filter;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-}
-
-.App-filter{
-  //background-color: #556B2F;
-  //min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-.App-body{
-  //background-color: #556B2F;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.HikesAndInfo{
-  display:flex;
-  flex-flow: row;
-  justify-content: center;
-}
-
-.hikeList{
-  flex-flow: column;
-  justify-content: flex-start;
-  flex-grow: 2;
-}
-
-.InfoList{
-  flex-flow: column;
   justify-content: space-around;
-  flex-grow: 2;
 }
 
-.RecommendedGear{
+.titleBar{
+  grid-area: title;
+  background-color: hsl(46, 38%, 36%);
+  /*border-bottom: 1px solid hsl(46, 38%, 15%);*/
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.WebsiteTitle{
+  flex-grow: 1;
+  font-size: 60px;
+}
+
+.HikeItem{
+  grid-area: hikes;
   border-radius: 25px;
   border: 1px outset black;
   background-color: white;
-  text-align: center;
+  text-align: left;
   padding: 20px;
-  max-width: 500px;
+  width: 50vw;
+  margin: auto;
+}
+
+.HikeItem:hover, .HikeItem:focus{
+  background-color: grey;
+}
+
+.InfoPanel.seen{
+  grid-area: info;
+  border-radius: 25px;
+  border: 1px outset black;
+  background-color: white;
+  text-align: left;
+  padding: 20px;
+  width: 50vw;
   margin: auto;
 }
 
 .InfoPanel{
-  border-radius: 25px;
-  border: 1px outset black;
-  background-color: white;
-  text-align: center;
-  padding: 20px;
-  max-width: 500px;
-  margin: auto;
+  display: none;
 }
 
-.hike{
-  border-radius: 25px;
-  border: 1px outset black;
-  background-color: white;
-  text-align: center;
-  padding: 20px;
-  max-width: 800px;
-  margin: auto;
-}
-
-.Map{
-  border-radius: 25px;
-  border: 1px outset black;
-  background-color: white;
-  text-align: center;
-  padding: 20px;
-  max-width: 800px;
-  max-height: 800px;
-  margin: auto;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
 .switch {
   position: relative;
@@ -185,3 +132,4 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
