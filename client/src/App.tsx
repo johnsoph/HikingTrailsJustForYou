@@ -5,20 +5,28 @@ import FilterBarItem from './FilterBarItem'
 import HikeBoxItem from './HikeBoxItem'
 import HikeInfoItem from './HikeInfoItem'
 
+
 const DEFAULT_HIKES = [
   {
     name: 'Mt. Shasta',
-    picURL: '',
+    picURL: 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350',
     description: 'Its a hike',
     info: 'Information about the hike',
-    navLink: 'Here is a link to go here'
+    navLink: 'https://www.youtube.com/watch?v=oHg5SJYRHA0&ab_channel=cotter548',
+    gear: {
+      clothing: "Jacket",
+      waterlevel: "Medium",
+      walkinggear: "None",
+      shoes: "walking",
+
+    }
   },
   {
     name: 'Oaks Park',
-    picURL: '',
+    picURL: 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350',
     description: 'Not a real hike',
     info: 'No Info',
-    navLink: 'Here is a link to go here'
+    navLink: 'https://www.youtube.com/watch?v=oHg5SJYRHA0&ab_channel=cotter548'
   }
 ]
 

@@ -6,9 +6,20 @@ body{
   margin: 0;
 }
 
+.NavButton{
+  background-color: hsl(27, 82%, 51%);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 .container{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 40vw 1fr;
   grid-template-rows: 15vh 15vh 1fr;
   grid-template-areas:
     "title title"
@@ -48,8 +59,10 @@ body{
   background-color: white;
   text-align: left;
   padding: 20px;
-  width: 50vw;
-  margin: auto;
+  width: 35vw;
+  margin: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .HikeItem:hover, .HikeItem:focus{
@@ -133,3 +146,19 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+.Collapsible{
+  cursor: pointer;
+  /*border: solid 1px #f2f2f2;*/
+  padding: 15px;
+  background-color: #0089CC;
+  color: #FFF;
+  font-family: verdana;
+  max-width: 40vw;
+}
+.Collapsible__contentInner{
+  cursor: pointer;
+  padding: 15px;
+  font-family: verdana;
+  font-size: 14px;
+}
