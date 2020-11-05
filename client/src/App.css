@@ -1,38 +1,164 @@
-.App {
-  text-align: center;
+*,*::before, *::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.NavButton{
+  background-color: hsl(27, 82%, 51%);
+  border: none;
   color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.container{
+  display: grid;
+  grid-template-columns: 40vw 1fr;
+  grid-template-rows: 15vh 15vh 1fr;
+  grid-template-areas:
+    "title title"
+    "filter filter"
+    "hikes info";
+  height: 100vh;
+  width: 100vw;
+  background-color: #DADADA
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.filterBar{
+  grid-area: filter;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.titleBar{
+  grid-area: title;
+  background-color: hsl(46, 38%, 36%);
+  /*border-bottom: 1px solid hsl(46, 38%, 15%);*/
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.WebsiteTitle{
+  flex-grow: 1;
+  font-size: 60px;
+}
+
+.HikeItem{
+  grid-area: hikes;
+  border-radius: 25px;
+  border: 1px outset black;
+  background-color: white;
+  text-align: left;
+  padding: 20px;
+  width: 35vw;
+  margin: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.HikeItem:hover, .HikeItem:focus{
+  background-color: grey;
+}
+
+.InfoPanel.seen{
+  grid-area: info;
+  border-radius: 25px;
+  border: 1px outset black;
+  background-color: white;
+  text-align: left;
+  padding: 20px;
+  width: 50vw;
+  margin: auto;
+}
+
+.InfoPanel{
+  display: none;
+}
+
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+.Collapsible{
+  cursor: pointer;
+  /*border: solid 1px #f2f2f2;*/
+  padding: 15px;
+  background-color: #0089CC;
+  color: #FFF;
+  font-family: verdana;
+  max-width: 40vw;
+}
+.Collapsible__contentInner{
+  cursor: pointer;
+  padding: 15px;
+  font-family: verdana;
+  font-size: 14px;
 }
