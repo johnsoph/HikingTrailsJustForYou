@@ -1,6 +1,7 @@
 import React from 'react';
 
-type DirectionsProps = {
+
+interface DirectionsProps {
   destination: string;
 }
 

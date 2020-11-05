@@ -76,10 +76,12 @@ class Home extends Component {
   };
 
   render() {
-    const destination = 'Mount Scott Hiking Trail, Crater Lake, Oregon';
+    const destinationExampleOne= 'Mount Scott Hiking Trail, Crater Lake, Oregon';
+    const destinationExampleTwo = '46.8689, -121.6592';
     return (
       <div className="App">
-        < DirectionsButton destination={destination}/>
+        < DirectionsButton destination={destinationExampleOne}/>
+        < DirectionsButton destination={destinationExampleTwo}/>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
