@@ -35,7 +35,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import DirectionsButton from './directionsButton';
+import DirectionsButton from './DirectionsButton';
 
 const AnotherPage = () => <h1>Another Page</h1>;
 const NotFound = () => <h1>404 Not Found</h1>;
@@ -76,9 +76,10 @@ class Home extends Component {
   };
 
   render() {
+    const destination = 'Mount Scott Hiking Trail, Crater Lake, Oregon';
     return (
       <div className="App">
-        < DirectionsButton />
+        < DirectionsButton destination={destination}/>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
