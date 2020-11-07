@@ -4,6 +4,7 @@ import TitleBarItem from './TitleBarItem'
 import FilterBarItem from './FilterBarItem'
 import HikeBoxItem from './HikeBoxItem'
 import HikeInfoItem from './HikeInfoItem'
+import { DirectionsButton } from './components/DirectionsButton';
 
 
 const DEFAULT_HIKES = [
@@ -57,6 +58,8 @@ function App() {
           info={selectedHike.info}
           navLink={selectedHike.navLink}
         />
+        /** Demo only, probably should be later implemented in HikeInfoItem component */
+        <DirectionsButton destination={selectedHike.name}/>
       </div>
     </div>
   );

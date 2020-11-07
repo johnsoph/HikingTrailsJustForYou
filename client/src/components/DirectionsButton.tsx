@@ -1,26 +1,25 @@
 import React from 'react';
 
-interface DirectionsProps {
+type DirectionsProps = {
   destination: string;
 }
 
-export default function DirectionsButton({ destination } : DirectionsProps) {
+export const DirectionsButton = ({ destination } : DirectionsProps) => {
   return (
-    <div>
+    <div className='dir-button'>
       <button 
-        value="Google Map Directions"
         onClick={() => goToMap(destination)}>
-        Directions
+        Demo Nav
       </button>
     </div>
   );
 }
 
 function goToMap(destination : string) {
+  /** Use Geolocation API call to get current position and open link to Google maps with
+   *  appropriate map parameters.
+   */
   navigator.geolocation.getCurrentPosition(
     function(currentLocation) {
       const origin = String(`${currentLocation.coords.latitude},${currentLocation.coords.longitude}`);
-      return window.open(`https://google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=driving`);
-    }
-  );
-}
+      return window.open(`https://google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=driving`);})}
