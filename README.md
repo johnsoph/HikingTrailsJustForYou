@@ -3,7 +3,7 @@
 Feature #1 - Kalise Ball
 The first one is I would like the app to gather the basic information from the user such as age, gender, daily activity level, etc depends on what you think would be a good factor to estimate their physical fitness level. Then, the gathered information will be used to estimate the user’s physical fitness level. You can design and define your own set of levels. I would say probably at least 3 or 4 levels.
 
-Featuer #2 - Phillip Johnson
+Feature #2 - Phillip Johnson
 The second feature, the app can retrieve all nearby hiking trails information such as name, distance, difficult level (easy, medium, hard), hiking time estimation, and trailhead location and display them as a list.
 
 Feature #3 - Evan McKague
