@@ -58,9 +58,9 @@ function App() {
           info={selectedHike.info}
           navLink={selectedHike.navLink}
         />
-        /** Demo only, probably should be later implemented in HikeInfoItem component */
+        {/** Demo button, will later be implemented into HikeInfoComponent */}
         <DirectionsButton destination={selectedHike.name}/>
-      </div>
+      </div> 
     </div>
   );
 }
