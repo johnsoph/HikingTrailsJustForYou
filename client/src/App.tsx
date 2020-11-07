@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, Component} from 'react';
 import './App.css';
 import TitleBarItem from './TitleBarItem'
 import FilterBarItem from './FilterBarItem'
 import HikeBoxItem from './HikeBoxItem'
 import HikeInfoItem from './HikeInfoItem'
 import { DirectionsButton } from './components/DirectionsButton';
-
+import Location from './Location'
 
 const DEFAULT_HIKES = [
   {
@@ -35,6 +35,16 @@ function App() {
   const [selectedHikeIndex, setSelectedHikeIndex] = useState(0)
   const [hikes, setHikes] = useState(DEFAULT_HIKES)
   const selectedHike = hikes[selectedHikeIndex]
+  var lat = 0
+  var longt = 0
+ 
+
+  navigator.geolocation.getCurrentPosition(function(position) {
+    lat  = position.coords.latitude
+    longt  = position.coords.longitude
+    console.log("Latitude is :", position.coords.latitude);
+    console.log("Longitude is :", position.coords.longitude);
+  });
 
   return (
     <div className="container">
@@ -61,6 +71,10 @@ function App() {
         {/** Demo button, will later be implemented into HikeInfoComponent */}
         <DirectionsButton destination={selectedHike.name}/>
       </div> 
+      </div>
+      <div>
+        <Location></Location>
+      </div>
     </div>
   );
 }
