@@ -4,10 +4,7 @@ import TitleBarItem from './TitleBarItem'
 import FilterBarItem from './FilterBarItem'
 import HikeBoxItem from './HikeBoxItem'
 import HikeInfoItem from './HikeInfoItem'
-<<<<<<< HEAD
 import { DirectionsButton } from './components/DirectionsButton';
-=======
->>>>>>> Phillip
 import Location from './Location'
 
 const DEFAULT_HIKES = [
@@ -73,10 +70,6 @@ function App() {
         />
         {/** Demo button, will later be implemented into HikeInfoComponent */}
         <DirectionsButton destination={selectedHike.name}/>
-      </div> 
-      </div>
-      <div>
-        <Location></Location>
       </div>
       <div>
         <Location></Location>
