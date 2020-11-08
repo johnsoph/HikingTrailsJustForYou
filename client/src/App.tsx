@@ -1,11 +1,12 @@
-import React, {useState, Component} from 'react';
+import React, {useState, Component} from 'react'
 import './App.css';
 import TitleBarItem from './TitleBarItem'
 import FilterBarItem from './FilterBarItem'
 import HikeBoxItem from './HikeBoxItem'
 import HikeInfoItem from './HikeInfoItem'
 import { DirectionsButton } from './components/DirectionsButton';
-import Location from './Location'
+import GetCoords from './Location';
+import Toggle from './Toggle'
 
 const DEFAULT_HIKES = [
   {
@@ -35,6 +36,7 @@ function App() {
   const [selectedHikeIndex, setSelectedHikeIndex] = useState(0)
   const [hikes, setHikes] = useState(DEFAULT_HIKES)
   const selectedHike = hikes[selectedHikeIndex]
+  const [showHikes, setShowHikes] = useState(true)
   var lat = 0
   var longt = 0
  
@@ -50,20 +52,18 @@ function App() {
     <div className="container">
       <div className="titleBar"> <TitleBarItem/> </div>
       <div className="filterBar"> <FilterBarItem/> </div>
-      <div>
-        {hikes.map((hike,index) => {
-          return(
-            <HikeBoxItem
-              key={index}
-              name={hike.name}
-              picURL={hike.picURL}
-              description={hike.description}
-              handleClick={() => setSelectedHikeIndex(index)}
-            />
-          )
-        })}
-        </div>
-        <div>
+      <div className="toggleButton">
+        <Toggle label="Just For You Hikes" onChange={setShowHikes}/>
+        {showHikes && hikes.map((hike,index) => (
+          <HikeBoxItem
+            key={index}
+            name={hike.name}
+            picURL={hike.picURL}
+            description={hike.description}
+            difficulty={hike.difficulty}
+            handleClick={() => setSelectedHikeIndex(index)}
+          />
+        ))}
         <HikeInfoItem
           info={selectedHike.info}
           navLink={selectedHike.navLink}
@@ -72,7 +72,7 @@ function App() {
         <DirectionsButton destination={selectedHike.name}/>
       </div>
       <div>
-        <Location></Location>
+        <GetCoords/>
       </div>
     </div>
   );
