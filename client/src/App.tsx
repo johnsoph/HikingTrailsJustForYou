@@ -1,6 +1,5 @@
-import React, {useState, Component} from 'react'
+import React, {useState, Component} from 'react';
 import './App.css';
-<<<<<<< HEAD
 import TitleBarItem from './components/TitleBarItem'
 import FilterBarItem from './components/FilterBarItem'
 import HikeBoxItem from './components/HikeBoxItem'
@@ -8,14 +7,6 @@ import HikeInfoItem from './components/HikeInfoItem'
 import TemplateComponent from './components/TemplateComponent'
 import { DirectionsButton } from './components/DirectionsButton'
 import Location from './Location'
-=======
-import TitleBarItem from './TitleBarItem'
-import FilterBarItem from './FilterBarItem'
-import HikeBoxItem from './HikeBoxItem'
-import HikeInfoItem from './HikeInfoItem'
-import { DirectionsButton } from './components/DirectionsButton';
-import GetCoords from './Location';
->>>>>>> 3fcf0870fb541e7f72f628a31b897c2b11177a84
 import Toggle from './Toggle'
 
 const DEFAULT_HIKES = [
@@ -72,10 +63,6 @@ function App() {
             name={hike.name}
             picURL={hike.picURL}
             description={hike.description}
-<<<<<<< HEAD
-=======
-            difficulty={hike.difficulty}
->>>>>>> 3fcf0870fb541e7f72f628a31b897c2b11177a84
             handleClick={() => setSelectedHikeIndex(index)}
           />
         ))}
@@ -87,7 +74,7 @@ function App() {
         <DirectionsButton destination={selectedHike.name}/>
       </div>
       <div>
-        <GetCoords/>
+        <Location></Location>
       </div>
     </div>
   );
