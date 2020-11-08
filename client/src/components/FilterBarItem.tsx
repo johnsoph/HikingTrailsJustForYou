@@ -9,11 +9,6 @@ export default function FilterBarItem(){
         <option value="challenge_me">Challenge Me</option>
       </select>
       <input type="text" placeholder="Zip Code"/>
-            <p> Just For You Hikes </p>
-            <label className="switch">
-              <input type="checkbox"/>
-              <span className="slider round"></span>
-            </label>
     </div>
   )
 }

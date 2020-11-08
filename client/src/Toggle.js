@@ -8,10 +8,6 @@ export default function Toggle(props) {
 
     return(
         <div>
-            <input 
-                type="text" 
-                placeholder="Zip Code"
-            />
             <label className="switch" >
                 {label}
                 <input type="checkbox" onChange={(e) => onChange(e.target.checked)}/>
