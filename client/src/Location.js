@@ -1,14 +1,36 @@
 import React, { Component } from "react";
+// import Animation from 'lottie-react-native';
+// import {
+//   StyleSheet,
+//   Text,
+//   View,
+//   Animated,
+//   Easing,
+//   ScrollView,
+//   RefreshControl,
+//   AppRegistry
+// } from 'react-native';
 
 class GetCoords extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        mapRegion: null,
+        mapRegion: 0,
         lastLat: 0,
         lastLong: 0,
     };
   }
+
+
+//   componentDidMount() {
+//     this.watchID = navigator.geolocation.getCurrentPosition(function(position) {
+//         let region = {
+//             latitude:       position.coords.latitude,
+//             longitude:      position.coords.longitude,
+//         }
+//         this.onRegionChange(region, region.latitude, region.longitude);
+//     });
+//   }
 
   componentDidMount() {
     this.watchID = navigator.geolocation.watchPosition((position) => {
@@ -37,8 +59,8 @@ class GetCoords extends Component {
   render() {
     return (
     <div>
-        <div>Latitude: { this.state.latitude } </div>
-        <div>Longitude: { this.state.longitude } </div>
+        <div>Latitude: { this.state.mapRegion.latitude } </div>
+        <div>Longitude: { this.state.mapRegion.longitude } </div>
     </div>
     )
   }
