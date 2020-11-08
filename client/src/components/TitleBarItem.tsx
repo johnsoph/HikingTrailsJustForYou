@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect , ConnectedProps} from "react-redux";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -7,8 +8,26 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Typography } from '@material-ui/core';
+import { TOGGLE_USER } from '../redux/action-types';
 
-export default function TitleBarItem() {
+
+const mapState = (state: any) => ({
+  user: state.user
+})
+
+const mapDispatch = {
+  toggleUser: (payload: string) => ({ type: TOGGLE_USER, payload })
+}
+
+const connector = connect(mapState, mapDispatch);
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+type Props = PropsFromRedux & {
+  // backgroundColor: string
+}
+
+function TitleBarItem(props: Props) {
   const [openSignUp, setOpenSignUp] = React.useState(false);
   const [openLogin, setOpenLogin] = React.useState(false);
 
@@ -43,6 +62,7 @@ export default function TitleBarItem() {
               label="Name"
               type="name"
               variant="outlined"
+              onChange={(e) => props.toggleUser(e.target.value)}
             />
             <TextField
               margin="dense"
@@ -111,6 +131,7 @@ export default function TitleBarItem() {
   return (
     <div>
       <Typography variant="h3" gutterBottom >PataGucci</Typography>
+      {/* <Typography variant="body1" gutterBottom >{props.user}</Typography> */}
       <Button className="LoginButton" variant="contained" color="primary" onClick={handleClickOpenLogin}>
         Login
       </Button>
@@ -122,3 +143,5 @@ export default function TitleBarItem() {
     </div>
   );
 }
+
+export default connector(TitleBarItem)

@@ -4,7 +4,8 @@ import TitleBarItem from './components/TitleBarItem'
 import FilterBarItem from './components/FilterBarItem'
 import HikeBoxItem from './components/HikeBoxItem'
 import HikeInfoItem from './components/HikeInfoItem'
-import { DirectionsButton } from './components/DirectionsButton';
+import TemplateComponent from './components/TemplateComponent'
+import { DirectionsButton } from './components/DirectionsButton'
 import Location from './Location'
 
 const DEFAULT_HIKES = [
@@ -48,7 +49,10 @@ function App() {
 
   return (
     <div className="container">
-      <div className="titleBar"> <TitleBarItem/> </div>
+      <div className="titleBar"> 
+        <TitleBarItem/> 
+        <TemplateComponent /> 
+      </div>
       <div className="filterBar"> <FilterBarItem/> </div>
       <div>
         {hikes.map((hike,index) => {
