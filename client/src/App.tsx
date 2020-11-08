@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import './App.css';
-import TitleBarItem from './TitleBarItem'
-import FilterBarItem from './FilterBarItem'
-import HikeBoxItem from './HikeBoxItem'
-import HikeInfoItem from './HikeInfoItem'
+import TitleBarItem from './components/TitleBarItem'
+import FilterBarItem from './components/FilterBarItem'
+import HikeBoxItem from './components/HikeBoxItem'
+import HikeInfoItem from './components/HikeInfoItem'
 import { DirectionsButton } from './components/DirectionsButton';
 
 
