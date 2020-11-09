@@ -7,6 +7,7 @@ import HikeInfoItem from './components/HikeInfoItem'
 import TemplateComponent from './components/TemplateComponent'
 import { DirectionsButton } from './components/DirectionsButton'
 import Location from './Location'
+import Toggle from './Toggle'
 
 const DEFAULT_HIKES = [
   {
@@ -20,7 +21,6 @@ const DEFAULT_HIKES = [
       waterlevel: "Medium",
       walkinggear: "None",
       shoes: "walking",
-
     }
   },
   {
@@ -36,6 +36,7 @@ function App() {
   const [selectedHikeIndex, setSelectedHikeIndex] = useState(0)
   const [hikes, setHikes] = useState(DEFAULT_HIKES)
   const selectedHike = hikes[selectedHikeIndex]
+  const [showHikes, setShowHikes] = useState(false)
   var lat = 0
   var longt = 0
  
@@ -54,20 +55,17 @@ function App() {
         <TemplateComponent /> 
       </div>
       <div className="filterBar"> <FilterBarItem/> </div>
-      <div>
-        {hikes.map((hike,index) => {
-          return(
-            <HikeBoxItem
-              key={index}
-              name={hike.name}
-              picURL={hike.picURL}
-              description={hike.description}
-              handleClick={() => setSelectedHikeIndex(index)}
-            />
-          )
-        })}
-        </div>
-        <div>
+      <div className="toggleButton">
+        <Toggle label="Just For You Hikes" onChange={setShowHikes}/>
+        {showHikes && hikes.map((hike,index) => (
+          <HikeBoxItem
+            key={index}
+            name={hike.name}
+            picURL={hike.picURL}
+            description={hike.description}
+            handleClick={() => setSelectedHikeIndex(index)}
+          />
+        ))}
         <HikeInfoItem
           info={selectedHike.info}
           navLink={selectedHike.navLink}
