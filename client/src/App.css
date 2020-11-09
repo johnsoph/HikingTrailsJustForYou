@@ -84,8 +84,11 @@ body{
   display: none;
 }
 
-/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+.InfoBlurb{
+  max-width: 40vw;
+}
 
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 .switch {
   position: relative;
   display: inline-block;
@@ -103,7 +106,7 @@ body{
   position: absolute;
   cursor: pointer;
   top: 0;
-  left: 150px;
+  left: 0;
   right: 0;
   bottom: 0;
   background-color: #ccc;
@@ -147,18 +150,57 @@ input:checked + .slider:before {
 }
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-.Collapsible{
-  cursor: pointer;
-  /*border: solid 1px #f2f2f2;*/
-  padding: 15px;
-  background-color: #0089CC;
-  color: #FFF;
-  font-family: verdana;
+.Collapsible {
+  background-color: white;
   max-width: 40vw;
-}
-.Collapsible__contentInner{
   cursor: pointer;
-  padding: 15px;
-  font-family: verdana;
-  font-size: 14px;
-}
+  }
+
+.Collapsible__contentInner {
+  padding: 10px;
+  cursor: text;
+  border: 1px solid #ebebeb;
+  border-top: 0; }
+  .Collapsible__contentInner p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px; }
+    .Collapsible__contentInner p:last-child {
+      margin-bottom: 0; }
+
+.Collapsible__trigger {
+  display: block;
+  font-weight: 400;
+  text-decoration: none;
+  color: #333333;
+  position: relative;
+  border: 1px solid white;
+  padding: 10px;
+  background: hsl(27, 82%, 51%); /*Color of Gear*/
+  color: white; }
+  .Collapsible__trigger:after {
+    font-family: 'FontAwesome';
+    content: '\f107';
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: block;
+    transition: transform 300ms; }
+  .Collapsible__trigger.is-open:after {
+    transform: rotateZ(180deg); }
+  .Collapsible__trigger.is-disabled {
+    opacity: 0.5;
+    background-color: grey; }
+
+.CustomTriggerCSS {
+  background-color: lightcoral;
+  transition: background-color 200ms ease; }
+
+.CustomTriggerCSS--open {
+  background-color: darkslateblue; }
+
+.Collapsible__custom-sibling {
+  padding: 5px;
+  font-size: 12px;
+  background-color: #CBB700;
+  color: black; }
