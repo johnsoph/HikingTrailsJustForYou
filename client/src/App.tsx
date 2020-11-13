@@ -8,6 +8,7 @@ import TemplateComponent from './components/TemplateComponent'
 import { DirectionsButton } from './components/DirectionsButton'
 import Location from './Location'
 import Toggle from './Toggle'
+import { callAPI } from './utils/api'
 
 const DEFAULT_HIKES = [
   {
@@ -79,6 +80,9 @@ function App() {
       return <></>
     }
   }
+  // Place this call somewhere else -- it's not saving the state in redux
+  callAPI();
+
 
   return (
     <div className="container">
