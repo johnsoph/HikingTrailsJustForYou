@@ -4,7 +4,7 @@ const initialState = {
     hikes: [],
     user: '',
 };
-  
+
 export default function(state = initialState, action) {
     switch (action.type) {
         case INIT_HIKES: {
@@ -12,9 +12,11 @@ export default function(state = initialState, action) {
             // const {  } = action.payload;
             return {
                 ...state,
+                hikes: action.payload
             }
         };
         case TOGGLE_USER: {
+            
             // const { name } = action.payload;
             return {
                 ...state,
