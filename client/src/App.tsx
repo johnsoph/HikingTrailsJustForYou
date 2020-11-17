@@ -10,6 +10,7 @@ import Location from './Location'
 import Toggle from './Toggle'
 import { callAPI } from './utils/api'
 
+
 const DEFAULT_HIKES = [
   {
     name: 'Bald Hill Trail',
