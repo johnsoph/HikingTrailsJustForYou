@@ -9,6 +9,7 @@ import { DirectionsButton } from './components/DirectionsButton'
 import Location from './Location'
 import Toggle from './Toggle'
 import { callAPI } from './utils/api'
+import { callZipAPI } from './utils/zipCoords'
 
 
 const DEFAULT_HIKES = [
@@ -82,7 +83,7 @@ function App() {
   }
   // Place this call somewhere else -- it's not saving the state in redux
   callAPI();
-
+  callZipAPI(97701);
 
   return (
     <div className="container">
