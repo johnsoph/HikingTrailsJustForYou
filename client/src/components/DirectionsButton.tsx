@@ -1,16 +1,31 @@
 import React from 'react';
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import buttonMapImage from '../assets/images/Google_Maps_icon.svg';
 
 type DirectionsProps = {
   destination: string;
 }
 
+const useStyles = makeStyles({
+  buttonStyle: {
+    width: '23%',
+    backgroundImage: `url(${buttonMapImage})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    boxShadow: '1px 2px 1px #9E9E9E',
+  }
+})
+
 export const DirectionsButton = ({ destination } : DirectionsProps) => {
+  const classes = useStyles();
   return (
-    <div className='dir-button'>
-      <button 
+    <div>
+      <Button className={classes.buttonStyle}
+        size="large"
         onClick={() => goToMap(destination)}>
-        Demo Nav
-      </button>
+        Directions
+      </Button>
     </div>
   );
 }
