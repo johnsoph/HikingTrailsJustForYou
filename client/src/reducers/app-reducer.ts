@@ -1,11 +1,24 @@
-import { INIT_HIKES, TOGGLE_USER } from "../redux/action-types";
+import { INIT_HIKES, UPDATE_USER } from "../redux/action-types";
+import { User } from '../common/model'
 
+interface State {
+    hikes: any;
+    user: User;
+}
 const initialState = {
     hikes: [],
-    user: '',
+    user: {
+        name: '',
+        age: null,
+        gender: '',
+        zipCode: null,
+        avgDailySteps: null,
+        hikingExperience: null,
+        activityLevel: null,
+    },
 };
 
-export default function(state = initialState, action) {
+export default function(state: State = initialState, action) {
     switch (action.type) {
         case INIT_HIKES: {
             // desrtucture the hikes
@@ -15,9 +28,8 @@ export default function(state = initialState, action) {
                 hikes: action.payload
             }
         };
-        case TOGGLE_USER: {
+        case UPDATE_USER: {
             
-            // const { name } = action.payload;
             return {
                 ...state,
                 user: action.payload

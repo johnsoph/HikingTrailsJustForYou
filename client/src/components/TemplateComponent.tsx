@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import TextField from '@material-ui/core/TextField';
 import { Typography, Button } from '@material-ui/core';
-import { TOGGLE_USER } from '../redux/action-types';
+import { UPDATE_USER } from '../redux/action-types';
 
 // type definitions
 interface StateProps {
@@ -11,7 +11,7 @@ interface StateProps {
 
 // type definiton
 interface DispatchProps {
-  toggleUser: (payload: string) => void
+  updateUser: (payload: string) => void
 }
 
 // type definition
@@ -29,7 +29,7 @@ const mapState = (state: any) => ({
 
 // actions
 const mapDispatch = {
-  toggleUser: (payload) => ({ type: TOGGLE_USER, payload})
+  updateUser: (payload) => ({ type: UPDATE_USER, payload})
 }
 
 function MyComponent(props: Props) {
@@ -52,7 +52,7 @@ function MyComponent(props: Props) {
         label="Name"
         type="name"
         variant="outlined"
-        onChange={(e) => props.toggleUser(e.target.value)}
+        onChange={(e) => props.updateUser(e.target.value)}
         />     
     </div>
 )}

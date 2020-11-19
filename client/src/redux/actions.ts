@@ -1,4 +1,4 @@
-import { INIT_HIKES, TOGGLE_USER } from "./action-types";
+import { INIT_HIKES, UPDATE_USER} from "./action-types";
 
 export const initHikes = (payload)  => ({ 
     type: INIT_HIKES, 
@@ -6,7 +6,8 @@ export const initHikes = (payload)  => ({
 });
   
 
-export const toggleUser = (payload) => ({
-    type: TOGGLE_USER,
+export const updateUser = (payload) => ({
+    type: UPDATE_USER,
     payload,
   });
+
