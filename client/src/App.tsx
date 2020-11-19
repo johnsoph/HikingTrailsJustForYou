@@ -17,7 +17,7 @@ const DEFAULT_HIKES = [
     picURL: 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350',
     description: 'The hike to the top of Bald Hill offers some beautiful views of the Willamette Valley and Coast Range mountains. ',
     info: 'Bald Hill Trail is a 2.7 mile heavily trafficked loop trail located near Corvallis, Oregon that features beautiful wild flowers and is rated as moderate. The trail offers a number of activity options and is accessible year-round. Dogs are also able to use this trail but must be kept on leash.',
-    navLink: 'https://www.youtube.com/watch?v=oHg5SJYRHA0&ab_channel=cotter548',
+    coordinates: '44.5656765,-123.3348229',
     clothing: "Jacket",
     waterlevel: "Medium",
     walkinggear: "None",
@@ -29,7 +29,7 @@ const DEFAULT_HIKES = [
     picURL: 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350',
     description: 'A wonderful short hike through the old growth of MacDonald Forest',
     info: 'The Old Growth Trail is a 1.5 mile heavily trafficked loop trail located near Corvallis, Oregon that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking, walking, running, and bird watching and is accessible year-round. Dogs are also able to use this trail but must be kept on leash.',
-    navLink: 'https://www.youtube.com/watch?v=oHg5SJYRHA0&ab_channel=cotter548',
+    coordinates: '43.98635,-123.6633',
     clothing: "Short and a T-Shirt",
     waterlevel: "Low",
     walkinggear: "None",
@@ -41,8 +41,7 @@ const DEFAULT_HIKES = [
     picURL: 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350',
     description: 'This is a loop hike, which can be done in either direction. Many hike it "counter-clock wise", and bike it "clock-wise."',
     info: '560 Loop Trail  is a 5.3 mile heavily trafficked loop trail located near Corvallis, Oregon that features beautiful wild flowers and is rated as moderate. The trail offers a number of activity options and is accessible year-round. Dogs and horses are also able to use this trail.',
-    navLink: 'https://www.youtube.com/watch?v=oHg5SJYRHA0&ab_channel=cotter548',
-    clothing: "Work-Out Gear",
+    coordinates: '36.61132056, -118.1248498',
     waterlevel: "Medium",
     walkinggear: "Walking Sticks, Bikes, or Horses",
     shoes: "Walking or Running",
@@ -70,7 +69,7 @@ function App() {
     if(showHikes){
       return <HikeInfoItem
         info={selectedHike.info}
-        navLink={selectedHike.navLink}
+        destination={selectedHike.coordinates}
         clothing={selectedHike.clothing}
         waterlevel={selectedHike.waterlevel}
         walkinggear={selectedHike.walkinggear}
