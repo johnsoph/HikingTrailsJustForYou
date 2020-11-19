@@ -1,7 +1,7 @@
-import { INIT_HIKES, TOGGLE_USER } from "../redux/action-types";
+import { INIT_HIKES, INIT_COORDS, TOGGLE_USER } from "../redux/action-types";
 
 const initialState = {
-    hikes: [],
+    results: [],
     user: '',
 };
 
@@ -15,6 +15,12 @@ export default function(state = initialState, action) {
                 hikes: action.payload
             }
         };
+        case INIT_COORDS: {
+            return {
+                ...state,
+                coords: action.payload
+            }
+        }; 
         case TOGGLE_USER: {
             
             // const { name } = action.payload;
