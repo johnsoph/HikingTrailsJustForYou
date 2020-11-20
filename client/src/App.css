@@ -4,6 +4,7 @@
 
 body{
   margin: 0;
+  background-color: #DADADA
 }
 
 .NavButton{
@@ -25,9 +26,6 @@ body{
     "title title"
     "filter filter"
     "hikes info";
-  height: 100vh;
-  width: 100vw;
-  background-color: #DADADA
 }
 
 .filterBar{
@@ -51,9 +49,13 @@ body{
   flex-grow: 1;
   font-size: 60px;
 }
-
-.HikeItem{
+.HikeList{
   grid-area: hikes;
+}
+.InfoList{
+  grid-area: info;
+}
+.HikeItem{
   border-radius: 25px;
   border: 1px outset black;
   background-color: white;
@@ -70,7 +72,6 @@ body{
 }
 
 .InfoPanel.seen{
-  grid-area: info;
   border-radius: 25px;
   border: 1px outset black;
   background-color: white;

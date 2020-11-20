@@ -51,8 +51,8 @@ function HikeListContainer(props: Props) {
 
     return(
 
-        <div>
-        <div>
+        <>
+        <div className="HikeList">
           {hikes.map((hike,index) => (
             <HikeBoxItem
               key={index}
@@ -64,10 +64,10 @@ function HikeListContainer(props: Props) {
             // <src img="f"></src>
           ))}
           </div>
-          <div>
+          <div className="InfoList">
           {renderInfoPanel()}
         </div>
-      </div>
+      </>
 )}
 
 // Typical usage: `connect` is called after the component is defined
