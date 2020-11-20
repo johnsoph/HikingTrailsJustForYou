@@ -1,5 +1,6 @@
-import { INIT_HIKES, UPDATE_USER } from "../redux/action-types";
+import { INIT_HIKES, INIT_COORDS, UPDATE_USER } from "../redux/action-types";
 import { User, Hikes } from '../common/model'
+
 
 interface State {
     hikes: Hikes[];
@@ -19,7 +20,6 @@ const initialState = {
     },
     // TODO -- KALISE INSERT GEAR 
     gear: {},
-
 };
 
 export default function(state: State = initialState, action) {
@@ -32,6 +32,12 @@ export default function(state: State = initialState, action) {
                 hikes: action.payload
             }
         };
+        case INIT_COORDS: {
+            return {
+                ...state,
+                coords: action.payload
+            }
+        }; 
         case UPDATE_USER: {
             
             return {
