@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 import TextField from '@material-ui/core/TextField';
 import { Typography, Button } from '@material-ui/core';
 import { UPDATE_USER } from '../redux/action-types';
+import { Hikes, User } from '../common/model';
 
 // type definitions
 interface StateProps {
-  user: string
+  user: User,
+  hikes: Hikes[],
 }
 
 // type definiton
@@ -45,7 +47,7 @@ function MyComponent(props: Props) {
 
     <div>
 
-      <Typography variant="body1" gutterBottom >Name Stored in State:{props.user}</Typography>
+      <Typography variant="body1" gutterBottom >Name Stored in State:{props.user?.name}</Typography>
       <TextField
         margin="dense"
         id="name"

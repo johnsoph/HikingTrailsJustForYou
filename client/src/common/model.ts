@@ -23,3 +23,29 @@ export interface User {
     hikingExperience: HikingExperience | null;
     activityLevel: ActivityLevel | null;
 }
+
+export interface Hikes {
+    ascent: number;
+    conditionDate: string;
+    conditionDetails: string;
+    conditionStatus: string;
+    decent: number;
+    difficulty: string;
+    high: number;
+    id: number;
+    imgMedium: string;
+    imgSmall: string;
+    imgSmallMed: string;
+    imgSqSmall: string;
+    latitude: number;
+    length: number;
+    location: string;
+    longitude: number;
+    low: number;
+    name: string;
+    starVotes: number;
+    stars: number;
+    summary: string;
+    type: string;
+    url: string;
+}

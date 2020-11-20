@@ -8,8 +8,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Typography } from '@material-ui/core';
-import { UPDATE_USER } from '../redux/action-types';
-import { User } from '../common/model';
+import { UPDATE_USER } from '../../redux/action-types';
+import { User } from '../../common/model';
 
 
 // type definitions
@@ -84,11 +84,13 @@ function TitleBarItem(props: Props) {
   }
 
   const getUserPreferenceDialog = () => {
+    debugger;
     return (
       <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">User Preferences</DialogTitle>
           <DialogContent>
             <DialogContentText>
+              {props.user.age}
               Enter your information to calculate your hiking level and get recommended hikes just for you.
             </DialogContentText>
             <TextField

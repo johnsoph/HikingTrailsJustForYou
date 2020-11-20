@@ -1,9 +1,10 @@
 import { INIT_HIKES, UPDATE_USER } from "../redux/action-types";
-import { User } from '../common/model'
+import { User, Hikes } from '../common/model'
 
 interface State {
-    hikes: any;
+    hikes: Hikes[];
     user: User;
+    gear: any;
 }
 const initialState = {
     hikes: [],
@@ -16,6 +17,9 @@ const initialState = {
         hikingExperience: null,
         activityLevel: null,
     },
+    // TODO -- KALISE INSERT GEAR 
+    gear: {},
+
 };
 
 export default function(state: State = initialState, action) {
