@@ -40,12 +40,14 @@ function HikeListContainer(props: Props) {
 
     const renderInfoPanel = ()=>{
         return <HikeInfoItem
-          info={selectedHike?.summary}
+          summary={selectedHike?.summary}
+          difficulty={selectedHike?.difficulty}
+          rating={selectedHike?.stars}
+          town={selectedHike?.location}
+          length={selectedHike?.length}
+          weather={selectedHike?.conditionStatus}
+          trailCon={selectedHike?.conditionDetails}
           navLink={selectedHike?.url}
-          clothing={'foo'}
-          waterlevel={'foo'}
-          walkinggear={'foo'}
-          shoes={'foo'}
         />
     }
 

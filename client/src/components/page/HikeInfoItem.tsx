@@ -32,7 +32,7 @@ import * as _ from 'lodash'
 //   }
 // ]
 
-export default function HikeInfoItem({ info, navLink, clothing, waterlevel, walkinggear, shoes}){
+export default function HikeInfoItem({ summary,difficulty,rating,town,length,weather,trailCon,navLink}){
 
   // call function to get recommended gear based on hike difficulty
   // function getGear() {
@@ -45,18 +45,17 @@ export default function HikeInfoItem({ info, navLink, clothing, waterlevel, walk
   return (
     <>
       <div className="InfoPanel.seen">
-        <div className="InfoBlurb"> {info} </div>
+        <div className="InfoBlurb"> {summary} </div>
+
+        <Collapsible trigger="Gear Recommendations">
+          {/*<p>Clothing: {clothing}</p>
+          <p>Hydration Level: {waterlevel}</p>
+          <p>Walking Gear: {walkinggear} </p>
+          <p>Shoes: {shoes} </p>*/}
+        </Collapsible>
         <div className="NavigationLink">
           <Button className="NavButton" href = {navLink} target="_blank"> NAVIGATE </Button>
         </div>
-
-        <Collapsible trigger="Gear Recommendations">
-          <p>Clothing: {clothing}</p>
-          <p>Hydration Level: {waterlevel}</p>
-          <p>Walking Gear: {walkinggear} </p>
-          <p>Shoes: {shoes} </p>
-        </Collapsible>
-        <div> MAP PLACE HOLDER SPACE </div>
       </div>
     </>
   )
