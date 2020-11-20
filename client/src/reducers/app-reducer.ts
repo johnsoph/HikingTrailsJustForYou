@@ -1,11 +1,28 @@
-import { INIT_HIKES, INIT_COORDS, TOGGLE_USER } from "../redux/action-types";
+import { INIT_HIKES, INIT_COORDS, UPDATE_USER } from "../redux/action-types";
+import { User, Hikes } from '../common/model'
 
+
+interface State {
+    hikes: Hikes[];
+    user: User;
+    gear: any;
+}
 const initialState = {
-    results: [],
-    user: '',
+    hikes: [],
+    user: {
+        name: '',
+        age: null,
+        gender: '',
+        zipCode: null,
+        avgDailySteps: null,
+        hikingExperience: null,
+        activityLevel: null,
+    },
+    // TODO -- KALISE INSERT GEAR 
+    gear: {},
 };
 
-export default function(state = initialState, action) {
+export default function(state: State = initialState, action) {
     switch (action.type) {
         case INIT_HIKES: {
             // desrtucture the hikes
@@ -21,9 +38,8 @@ export default function(state = initialState, action) {
                 coords: action.payload
             }
         }; 
-        case TOGGLE_USER: {
+        case UPDATE_USER: {
             
-            // const { name } = action.payload;
             return {
                 ...state,
                 user: action.payload

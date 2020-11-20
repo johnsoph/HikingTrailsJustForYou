@@ -2,16 +2,18 @@ import React from 'react';
 import { connect } from "react-redux";
 import TextField from '@material-ui/core/TextField';
 import { Typography, Button } from '@material-ui/core';
-import { TOGGLE_USER } from '../redux/action-types';
+import { UPDATE_USER } from '../redux/action-types';
+import { Hikes, User } from '../common/model';
 
 // type definitions
 interface StateProps {
-  user: string
+  user: User,
+  hikes: Hikes[],
 }
 
 // type definiton
 interface DispatchProps {
-  toggleUser: (payload: string) => void
+  updateUser: (payload: string) => void
 }
 
 // type definition
@@ -29,7 +31,7 @@ const mapState = (state: any) => ({
 
 // actions
 const mapDispatch = {
-  toggleUser: (payload) => ({ type: TOGGLE_USER, payload})
+  updateUser: (payload) => ({ type: UPDATE_USER, payload})
 }
 
 function MyComponent(props: Props) {
@@ -45,14 +47,14 @@ function MyComponent(props: Props) {
 
     <div>
 
-      <Typography variant="body1" gutterBottom >Name Stored in State:{props.user}</Typography>
+      <Typography variant="body1" gutterBottom >Name Stored in State:{props.user?.name}</Typography>
       <TextField
         margin="dense"
         id="name"
         label="Name"
         type="name"
         variant="outlined"
-        onChange={(e) => props.toggleUser(e.target.value)}
+        onChange={(e) => props.updateUser(e.target.value)}
         />     
     </div>
 )}
