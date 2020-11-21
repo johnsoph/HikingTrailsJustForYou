@@ -8,23 +8,37 @@ type DirectionsProps = {
 }
 
 const useStyles = makeStyles({
-  buttonStyle: {
-    width: '35%',
-    backgroundImage: `url(${buttonMapImage})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
-    boxShadow: '1px 2px 1px #9E9E9E',
-  }
+  buttonContainer: {
+    width: '15%'
+  },
+  buttonStuffContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    textShadow: '0 0 1px white, 0 0 1px white, 0 0 1px white',
+  },
+  buttonText: {
+    textAlign: 'center',
+    lineHeight: '125%',
+    order: 0,
+
+  },
+  buttonImage: {
+    order: 0,
+
+  },
 })
 
 export const DirectionsButton = ({ destination } : DirectionsProps) => {
   const classes = useStyles();
   return (
     <div>
-      <Button className={classes.buttonStyle}
-        size="large"
+      <Button className={classes.buttonContainer}
         onClick={() => goToMap(destination)}>
-        Directions
+        <div className={classes.buttonStuffContainer}>
+          <img className={classes.buttonImage} src={buttonMapImage} />
+          <h6 className={classes.buttonText}>Navigate{<br />}to{<br />}Trailhead</h6>
+        </div>
       </Button>
     </div>
   );
