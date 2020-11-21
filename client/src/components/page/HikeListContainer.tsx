@@ -41,7 +41,7 @@ function HikeListContainer(props: Props) {
     const renderInfoPanel = ()=>{
         return <HikeInfoItem
           info={selectedHike?.summary}
-          navLink={selectedHike?.url}
+          destination={`${selectedHike?.latitude},${selectedHike?.longitude}`}
           clothing={'foo'}
           waterlevel={'foo'}
           walkinggear={'foo'}

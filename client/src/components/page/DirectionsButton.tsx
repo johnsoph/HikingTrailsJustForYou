@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import buttonMapImage from '../assets/images/Google_Maps_icon.svg';
+import buttonMapImage from '../../assets/images/Google_Maps_icon.svg';
 
 type DirectionsProps = {
   destination: string;
@@ -9,7 +9,7 @@ type DirectionsProps = {
 
 const useStyles = makeStyles({
   buttonStyle: {
-    width: '23%',
+    width: '35%',
     backgroundImage: `url(${buttonMapImage})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'contain',
@@ -29,6 +29,7 @@ export const DirectionsButton = ({ destination } : DirectionsProps) => {
     </div>
   );
 }
+
 
 function goToMap(destination : string) {
   /** Use Geolocation API call to get current position and open link to Google maps with
