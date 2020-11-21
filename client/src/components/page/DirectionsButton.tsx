@@ -36,7 +36,7 @@ export const DirectionsButton = ({ destination } : DirectionsProps) => {
       <Button className={classes.buttonContainer}
         onClick={() => goToMap(destination)}>
         <div className={classes.buttonStuffContainer}>
-          <img className={classes.buttonImage} src={buttonMapImage} />
+          <img className={classes.buttonImage} src={buttonMapImage} alt={"Google Map icon"}/>
           <h6 className={classes.buttonText}>Navigate{<br />}to{<br />}Trailhead</h6>
         </div>
       </Button>
