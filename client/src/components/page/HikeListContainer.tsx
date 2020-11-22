@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
-import { Hikes } from '../../common/model';
+import { Hikes, FilterType, Filter } from '../../common/model';
 import { UPDATE_USER } from '../../redux/action-types';
 import { DEFAULT_HIKES } from '../../common/mockHikes';
 import HikeInfoItem from './HikeInfoItem';
@@ -9,6 +9,7 @@ import HikeBoxItem from './HikeBoxItem';
 // type definitions
 interface StateProps {
   hikes: Hikes[],
+  filteredHikes: Filter,
 }
 
 // type definiton
@@ -25,7 +26,8 @@ type Props = StateProps & DispatchProps & OwnProps
 
 // redux state objects
 const mapState = (state: any) => ({
-  hikes: state.hikes
+  hikes: state.hikes,
+  filteredHikes: state.filteredHikes
 })
 
 // actions
@@ -34,6 +36,7 @@ const mapDispatch = {
 }
 
 function HikeListContainer(props: Props) {
+    const [filterSelection, setFilterSection] = useState(props.filteredHikes?.filterType)
     const [selectedHikeIndex, setSelectedHikeIndex] = useState(0)
     const [hikes, setHikes] = useState(props.hikes)
     const selectedHike = hikes[selectedHikeIndex]
@@ -49,7 +52,8 @@ function HikeListContainer(props: Props) {
         />
     }
 
-    return(
+    return filterSelection !== FilterType.None ? (
+    
 
         <>
         <div className="HikeList">
@@ -68,7 +72,8 @@ function HikeListContainer(props: Props) {
           {renderInfoPanel()}
         </div>
       </>
-)}
+    ) : null
+}
 
 // Typical usage: `connect` is called after the component is defined
 export default connect<StateProps, DispatchProps, OwnProps>(
