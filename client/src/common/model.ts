@@ -49,3 +49,7 @@ export interface Hikes {
     type: string;
     url: string;
 }
+
+export interface Filter {
+    desiredHikes: string | null;
+}

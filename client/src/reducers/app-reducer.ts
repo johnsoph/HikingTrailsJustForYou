@@ -1,4 +1,4 @@
-import { INIT_HIKES, INIT_COORDS, UPDATE_USER } from "../redux/action-types";
+import { INIT_HIKES, INIT_COORDS, UPDATE_USER, UPDATE_FILTER } from "../redux/action-types";
 import { User, Hikes } from '../common/model'
 
 
@@ -45,6 +45,14 @@ export default function(state: State = initialState, action) {
                 user: action.payload
             }
         }; 
+        case UPDATE_FILTER: {
+            
+            return {
+                ...state,
+                filter: action.payload
+            }
+        }; 
+        
         default:
             return state;
     }

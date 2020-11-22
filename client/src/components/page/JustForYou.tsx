@@ -10,18 +10,21 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
 import { Typography, Select, MenuItem } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
-import { UPDATE_USER } from '../../redux/action-types';
-import { User } from '../../common/model';
+import { UPDATE_FILTER } from '../../redux/action-types';
+import { Filter } from '../../common/model';
 import { number } from 'prop-types';
+
 // import FilterBarItem from '../FilterBarItem';
 
 
 // type definitions
 interface StateProps {
+  filter: Filter;
 }
 
 // type definiton
 interface DispatchProps {
+  updateFilter: (payload: Filter) => void
 }
 
 // type definition
@@ -32,15 +35,21 @@ interface OwnProps {
 type Props = StateProps & DispatchProps & OwnProps
 
 // redux state objects
-const mapState = (state: any) => {};
+const mapState = (state: any) => ({
+  filter: state.filter
+});
 
 // actions
-const mapDispatch = {};
+const mapDispatch = {
+  updateFilter:(payload) => ({type: UPDATE_FILTER, payload})
+};
 
 
 function JustForYou(props: Props) {
   const [openDialog, setOpenDialog] = React.useState(false);
-  const [filterSelection, setFilterSelection] = React.useState('');
+  const [filterSelection, setFilterSelection] = React.useState("");
+  // const [filterSubmit, handleSubmit] = React.useState(props.filter?.desiredHikes);
+
 //   const [submit, handleSave] = React.useState({filterSelection});
 //   const [userHikingExperience, setUserHikingExperience] = React.useState(props.user?.hikingExperience);
 
@@ -49,11 +58,18 @@ function JustForYou(props: Props) {
   };
 
   const handleCloseDialog = () => {
+
     setOpenDialog(false);
   };
 
   const handleSave = () => {
-    // save values
+    // save selected value
+    const newFilter: Filter = {
+      desiredHikes: filterSelection
+    }
+    props.updateFilter(newFilter)
+
+    // close dialog box
     setOpenDialog(false);
   };
 
@@ -110,7 +126,11 @@ function JustForYou(props: Props) {
   );
 }
 
-export default (JustForYou)
+// export default (JustForYou)
 
-// export default connect<StateProps, DispatchProps, OwnProps>(JustForYou)
+export default connect<StateProps, DispatchProps, OwnProps>(
+  mapState,
+  mapDispatch
+)
+(JustForYou)
 
