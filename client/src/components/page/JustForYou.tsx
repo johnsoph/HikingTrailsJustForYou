@@ -10,18 +10,22 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
 import { Typography, Select, MenuItem } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
-import { UPDATE_USER } from '../../redux/action-types';
-import { User } from '../../common/model';
+import { UPDATE_FILTER } from '../../redux/action-types';
+import { Filter, FilterType, Hikes } from '../../common/model';
 import { number } from 'prop-types';
+
 // import FilterBarItem from '../FilterBarItem';
 
 
 // type definitions
 interface StateProps {
+  filter: Filter;
+  // disiredHikes: Hikes;
 }
 
 // type definiton
 interface DispatchProps {
+  updateFilter: (payload: Filter) => void
 }
 
 // type definition
@@ -32,15 +36,21 @@ interface OwnProps {
 type Props = StateProps & DispatchProps & OwnProps
 
 // redux state objects
-const mapState = (state: any) => {};
+const mapState = (state: any) => ({
+  filter: state.filter
+});
 
 // actions
-const mapDispatch = {};
+const mapDispatch = {
+  updateFilter:(payload) => ({type: UPDATE_FILTER, payload})
+};
 
 
 function JustForYou(props: Props) {
   const [openDialog, setOpenDialog] = React.useState(false);
-  const [filterSelection, setFilterSelection] = React.useState('');
+  const [filterSelection, setFilterSelection] = React.useState(0);
+  // const [filterSubmit, handleSubmit] = React.useState(props.filter?.desiredHikes);
+
 //   const [submit, handleSave] = React.useState({filterSelection});
 //   const [userHikingExperience, setUserHikingExperience] = React.useState(props.user?.hikingExperience);
 
@@ -53,8 +63,15 @@ function JustForYou(props: Props) {
   };
 
   const handleSave = () => {
-    // save values
-    setOpenDialog(false);
+    // save selected value
+    const newFilter: Filter = {
+      // desiredHikes: Hikes[],
+      filterType: filterSelection
+    }
+    props.updateFilter(newFilter)
+
+    // close dialog box
+    handleCloseDialog();
   };
 
   const handleChange = (e) => {
@@ -77,16 +94,16 @@ function JustForYou(props: Props) {
                     id="hiking_vibe" 
                     value ={filterSelection} 
                     onChange={handleChange}>
-                    <MenuItem value=""><em>Nearby Hikes</em></MenuItem>
-                    <MenuItem value="easy_and_chill">Easy and Chill</MenuItem>
-                    <MenuItem value="best_match">Best Match My Fitness Level</MenuItem>
-                    <MenuItem value="challenge_me">Challenge Me</MenuItem>
+                    <MenuItem value={0}><em>Nearby Hikes</em></MenuItem>
+                    <MenuItem value={1}>Easy and Chill</MenuItem>
+                    <MenuItem value={2}>Best Match, My Fitness Level</MenuItem>
+                    <MenuItem value={3}>Challenge Me</MenuItem>
                 </Select>
                 <input type="text" placeholder="Zip Code"/>
             </FormControl>
           </DialogContent>
           <DialogActions>
-          <Button onSubmit={handleSave} color="primary">
+          <Button onClick={handleSave} color="primary">
               Save
             </Button>
             <Button onClick={handleCloseDialog} color="primary">
@@ -110,7 +127,11 @@ function JustForYou(props: Props) {
   );
 }
 
-export default (JustForYou)
+// export default (JustForYou)
 
-// export default connect<StateProps, DispatchProps, OwnProps>(JustForYou)
+export default connect<StateProps, DispatchProps, OwnProps>(
+  mapState,
+  mapDispatch
+)
+(JustForYou)
 
