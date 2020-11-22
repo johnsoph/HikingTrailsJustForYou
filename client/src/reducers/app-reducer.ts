@@ -26,7 +26,7 @@ const initialState = {
     gear: {},
     filteredHikes: {
         desiredHikes: [],
-        filterType: 1,
+        filterType: 0,
     },
 };
 
