@@ -1,15 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Collapsible from 'react-collapsible';
 import { DirectionsButton } from './DirectionsButton';
 import '../../App.css'
-import * as _ from 'lodash'
-import Location from '../../Location'
+import 'lodash'
 
-const tempDate = new Date();
-const month = (tempDate.getMonth()+1)
 var lat = 0
-var longt = 0
 var season = 'LOADING'
 
 const recommendedGear = [
@@ -138,7 +134,6 @@ const getSeason = (latitude, month) => {
 export default function HikeInfoItem({ name,summary,difficulty,rating,town,length,weather,navLink, destination}){
   navigator.geolocation.getCurrentPosition(function(position) {
     lat  = position.coords.latitude
-    longt  = position.coords.longitude
   });
   season = getSeason(lat, new Date().getMonth());
 
@@ -175,7 +170,7 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
           <li> Emergency Fire Starting tools like Matches, Lighter, and/or Tinder </li>
           </ul>
           <p> For this Hike: </p>
-          {recommendedGear.filter(rec => rec.difficultyLevel == subDif.difficulty && rec.season == subSeason.season).map(recGot =>(
+          {recommendedGear.filter(rec => rec.difficultyLevel === subDif.difficulty && rec.season === subSeason.season).map(recGot =>(
           <ul>
             <li> Clothing: {recGot.clothing} </li>
             <li> Walking Gear: {recGot.walkingGear} </li>
