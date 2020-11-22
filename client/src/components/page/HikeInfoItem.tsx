@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Button from 'react-bootstrap/Button'
 import Collapsible from 'react-collapsible';
+import { DirectionsButton } from './DirectionsButton';
 import '../../App.css'
 import * as _ from 'lodash'
 import Location from '../../Location'
@@ -140,7 +141,6 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
     longt  = position.coords.longitude
   });
   season = getSeason(lat, new Date().getMonth());
-
 
   // call function to get recommended gear based on hike difficulty
   // function getGear() {
