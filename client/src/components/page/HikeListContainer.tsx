@@ -48,6 +48,7 @@ function HikeListContainer(props: Props) {
           length={selectedHike?.length}
           weather={selectedHike?.conditionStatus}
           navLink={selectedHike?.url}
+          destination={`${selectedHike?.latitude},${selectedHike?.longitude}`}
         />
     }
 

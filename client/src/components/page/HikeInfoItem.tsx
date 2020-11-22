@@ -135,7 +135,7 @@ const getSeason = (latitude, month) => {
     }
 
 
-export default function HikeInfoItem({ name,summary,difficulty,rating,town,length,weather,navLink}){
+export default function HikeInfoItem({ name,summary,difficulty,rating,town,length,weather,navLink, destination}){
   navigator.geolocation.getCurrentPosition(function(position) {
     lat  = position.coords.latitude
     longt  = position.coords.longitude
@@ -162,7 +162,7 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
           <p>Located at: {town}</p>
           <p>Length: {length} miles</p>
         </div>
-
+        <DirectionsButton destination={destination} />
         <Collapsible trigger="Gear Recommendations">
           <p> Always Think About Bring: </p>
           <ul>
