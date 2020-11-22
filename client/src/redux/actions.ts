@@ -1,4 +1,4 @@
-import { INIT_HIKES, INIT_COORDS, UPDATE_USER } from "./action-types";
+import { INIT_HIKES, INIT_COORDS, UPDATE_USER, UPDATE_HIKING_LEVEL } from "./action-types";
 
 
 export const initHikes = (payload)  => ({ 
@@ -16,3 +16,7 @@ export const updateUser = (payload) => ({
     payload,
   });
 
+  export const updateHikingLevel = (payload) => ({
+    type: UPDATE_HIKING_LEVEL,
+    payload,
+  });
