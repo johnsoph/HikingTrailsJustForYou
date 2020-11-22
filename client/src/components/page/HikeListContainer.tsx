@@ -40,15 +40,17 @@ function HikeListContainer(props: Props) {
     const [selectedHikeIndex, setSelectedHikeIndex] = useState(0)
     const [hikes, setHikes] = useState(props.hikes)
     const selectedHike = hikes[selectedHikeIndex]
-
     const renderInfoPanel = ()=>{
         return <HikeInfoItem
-          info={selectedHike?.summary}
+          name={selectedHike?.name}
+          summary={selectedHike?.summary}
+          difficulty={selectedHike?.difficulty}
+          rating={selectedHike?.stars}
+          town={selectedHike?.location}
+          length={selectedHike?.length}
+          weather={selectedHike?.conditionStatus}
           navLink={selectedHike?.url}
-          clothing={'foo'}
-          waterlevel={'foo'}
-          walkinggear={'foo'}
-          shoes={'foo'}
+          destination={`${selectedHike?.latitude},${selectedHike?.longitude}`}
         />
     }
 
@@ -65,10 +67,9 @@ function HikeListContainer(props: Props) {
               description={hike?.summary}
               handleClick={() => setSelectedHikeIndex(index)}
             />
-            // <src img="f"></src>
           ))}
-          </div>
-          <div className="InfoList">
+        </div>
+        <div className="InfoList">
           {renderInfoPanel()}
         </div>
       </>

@@ -1,15 +1,18 @@
-import { INIT_HIKES, INIT_COORDS, UPDATE_USER, UPDATE_FILTER } from "../redux/action-types";
+import { INIT_HIKES, INIT_COORDS, UPDATE_USER, UPDATE_FILTER, UPDATE_HIKING_LEVEL } from "../redux/action-types";
 import { User, Hikes, Filter } from '../common/model'
+
 
 
 interface State {
     hikes: Hikes[];
     user: User;
     gear: any;
+
     // the array of hikes filtered down based on the string value 
     // example: easy_and_chill, challenge_me ...
     filteredHikes: Filter;
-};
+    hikingLevel: number | null;
+}
 
 const initialState = {
     hikes: [],
@@ -28,6 +31,9 @@ const initialState = {
         desiredHikes: [],
         filterType: 0,
     },
+
+    hikingLevel: null,
+
 };
 
 export default function(state: State = initialState, action) {
@@ -53,6 +59,7 @@ export default function(state: State = initialState, action) {
                 user: action.payload
             }
         }; 
+
         case UPDATE_FILTER: {
             const result = {
                 desiredHikes: [],
@@ -65,6 +72,13 @@ export default function(state: State = initialState, action) {
             }
         }; 
         
+        case UPDATE_HIKING_LEVEL: {
+            
+            return {
+                ...state,
+                hikingLevel: action.payload
+            }
+        }; 
         default:
             return state;
     }
