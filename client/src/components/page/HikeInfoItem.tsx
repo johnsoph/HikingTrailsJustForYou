@@ -17,6 +17,7 @@ const recommendedGear = [
     difficultyLevel: 'green',
     season: 'winter',
     clothing: 'Wind breaker, long pants, jacket, multiple layers',
+    clothingLINK: "#",
     walkingGear: 'None',
     hydrationLevel: 'Water bottle or small hydration pack',
     shoes: 'Running Shoes or Water Proof Shoes',
@@ -139,14 +140,16 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
     longt  = position.coords.longitude
   });
   season = getSeason(lat, new Date().getMonth());
+
+
   // call function to get recommended gear based on hike difficulty
   // function getGear() {
   //   const gear = _.filter(recommendedGear, {difficultyLevel: hikeDifficulty, weather: hikeWeather})
   //   return gear;
   // }
   // map through the recommended gear
-
-
+  const subDif = JSON.parse(JSON.stringify({difficulty}))
+  const subSeason = JSON.parse(JSON.stringify({season}))
 
   return (
     <>
@@ -172,13 +175,13 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
           <li> Emergency Fire Starting tools like Matches, Lighter, and/or Tinder </li>
           </ul>
           <p> For this Hike: </p>
-          {recommendedGear.filter(rec => rec.difficultyLevel.includes({difficulty}) && rec.season.includes({season})).map(recGot =>(
-            <li>
-              {recGot.clothing}
-              {recGot.walkingGear}
-              {recGot.hydrationLevel}
-              {recGot.shoes}
-            </li>
+          {recommendedGear.filter(rec => rec.difficultyLevel == subDif.difficulty && rec.season == subSeason.season).map(recGot =>(
+          <ul>
+            <li> Clothing: {recGot.clothing} </li>
+            <li> Walking Gear: {recGot.walkingGear} </li>
+            <li> Water: {recGot.hydrationLevel} </li>
+            <li> Shoes: {recGot.shoes} </li>
+          </ul>
           ))}
           {/*<p>Clothing: {clothing}</p>
           <p>Hydration Level: {waterlevel}</p>
