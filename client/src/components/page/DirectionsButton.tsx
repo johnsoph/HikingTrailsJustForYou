@@ -8,48 +8,52 @@ type DirectionsProps = {
 }
 
 const useStyles = makeStyles({
-  buttonContainer: {
-    width: '15%'
-  },
   buttonStuffContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
+    alignItems: 'center',
     textShadow: '0 0 1px white, 0 0 1px white, 0 0 1px white',
   },
   buttonText: {
     textAlign: 'center',
     lineHeight: '125%',
-    order: 0,
 
   },
   buttonImage: {
     order: 0,
+    width: '4em'
 
   },
 })
 
+let origin = "";
+
+function mapURL(destination : string): string {
+  getCoords()
+  const destinationURL = `https://google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=driving`;
+  return String(destinationURL);
+};
+
+function getCoords() {
+    navigator.geolocation.getCurrentPosition(
+    function(currentLocation) {
+      origin = String(`${currentLocation.coords.latitude},${currentLocation.coords.longitude}`);})}
+
 export const DirectionsButton = ({ destination } : DirectionsProps) => {
   const classes = useStyles();
+  const goToURL = mapURL(destination);
   return (
     <div>
-      <Button className={classes.buttonContainer}
-        onClick={() => goToMap(destination)}>
+      <a href={goToURL} target={"_blank"}>
+      <Button
+      >
         <div className={classes.buttonStuffContainer}>
           <img className={classes.buttonImage} src={buttonMapImage} alt={"Google Map icon"}/>
           <h6 className={classes.buttonText}>Navigate{<br />}to{<br />}Trailhead</h6>
         </div>
       </Button>
+      </a>
     </div>
   );
 }
-
-
-function goToMap(destination : string) {
-  /** Use Geolocation API call to get current position and open link to Google maps with
-   *  appropriate map parameters.
-   */
-  navigator.geolocation.getCurrentPosition(
-    function(currentLocation) {
-      const origin = String(`${currentLocation.coords.latitude},${currentLocation.coords.longitude}`);
-      return window.open(`https://google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=driving`);})}
