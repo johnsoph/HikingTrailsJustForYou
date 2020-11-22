@@ -51,13 +51,14 @@ export interface Hikes {
 }
 
 export interface Filter {
-    desiredHikes: Hikes[];
+    // desiredHikes: Hikes[];
     filterType: FilterType;
 }
 
 
 export enum FilterType {
-    "None" = 1,
-    "Easy and Chill" = 2,
+    "None" = 0,
+    "Easy and Chill" = 1,
+    "Best Match" = 2,
     "Challenge Me" = 3,
 }

@@ -11,7 +11,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { Typography, Select, MenuItem } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import { UPDATE_FILTER } from '../../redux/action-types';
-import { Filter } from '../../common/model';
+import { Filter, FilterType, Hikes } from '../../common/model';
 import { number } from 'prop-types';
 
 // import FilterBarItem from '../FilterBarItem';
@@ -20,6 +20,7 @@ import { number } from 'prop-types';
 // type definitions
 interface StateProps {
   filter: Filter;
+  // disiredHikes: Hikes;
 }
 
 // type definiton
@@ -47,7 +48,7 @@ const mapDispatch = {
 
 function JustForYou(props: Props) {
   const [openDialog, setOpenDialog] = React.useState(false);
-  const [filterSelection, setFilterSelection] = React.useState("");
+  const [filterSelection, setFilterSelection] = React.useState(0);
   // const [filterSubmit, handleSubmit] = React.useState(props.filter?.desiredHikes);
 
 //   const [submit, handleSave] = React.useState({filterSelection});
@@ -65,12 +66,13 @@ function JustForYou(props: Props) {
   const handleSave = () => {
     // save selected value
     const newFilter: Filter = {
-      desiredHikes: filterSelection
+      // desiredHikes: Hikes[],
+      filterType: filterSelection
     }
     props.updateFilter(newFilter)
 
     // close dialog box
-    setOpenDialog(false);
+    handleCloseDialog();
   };
 
   const handleChange = (e) => {
@@ -93,16 +95,16 @@ function JustForYou(props: Props) {
                     id="hiking_vibe" 
                     value ={filterSelection} 
                     onChange={handleChange}>
-                    <MenuItem value=""><em>Nearby Hikes</em></MenuItem>
-                    <MenuItem value="easy_and_chill">Easy and Chill</MenuItem>
-                    <MenuItem value="best_match">Best Match My Fitness Level</MenuItem>
-                    <MenuItem value="challenge_me">Challenge Me</MenuItem>
+                    <MenuItem value={0}><em>Nearby Hikes</em></MenuItem>
+                    <MenuItem value={1}>Easy and Chill</MenuItem>
+                    <MenuItem value={2}>Best Match, My Fitness Level</MenuItem>
+                    <MenuItem value={3}>Challenge Me</MenuItem>
                 </Select>
                 <input type="text" placeholder="Zip Code"/>
             </FormControl>
           </DialogContent>
           <DialogActions>
-          <Button onSubmit={handleSave} color="primary">
+          <Button onClick={handleSave} color="primary">
               Save
             </Button>
             <Button onClick={handleCloseDialog} color="primary">

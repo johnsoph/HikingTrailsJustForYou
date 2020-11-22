@@ -15,13 +15,14 @@ import { DEFAULT_HIKES } from './common/mockHikes'
 import { callZipAPI } from './utils/zipCoords'
 import { Filter, FilterType} from './common/model'
 
+
 function App() {
   
   const filterSelection: Filter = {
-    desiredHikes: [],
-    filterType: 2
+    // desiredHikes: [],
+    filterType: 0
   }  
-  // const [showHikes, setShowHikes] = useState("")
+
   var lat = 0
   var longt = 0
 
@@ -44,9 +45,9 @@ function App() {
 
       <div className="filterBar">
         <JustForYou />
-        <div className="toggleButton">
-          {/* <Toggle label="Just For You Hikes" onChange={setShowHikes}/> */}
-        </div>
+        {/* <div className="toggleButton">
+          { <Toggle label="Just For You Hikes" onChange={setShowHikes}/>}
+        </div> */}
       </div>
     {filterSelection.filterType !== FilterType.None ?(
       <HikeListContainer />
