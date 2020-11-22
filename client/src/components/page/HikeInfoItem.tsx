@@ -128,7 +128,7 @@ const getSeason = (latitude, month) => {
   else {
       return latitude > 0 ? 'winter' : 'summer';
   }
-    }
+}
 
 
 export default function HikeInfoItem({ name,summary,difficulty,rating,town,length,weather,navLink, destination}){
@@ -136,13 +136,6 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
     lat  = position.coords.latitude
   });
   season = getSeason(lat, new Date().getMonth());
-
-  // call function to get recommended gear based on hike difficulty
-  // function getGear() {
-  //   const gear = _.filter(recommendedGear, {difficultyLevel: hikeDifficulty, weather: hikeWeather})
-  //   return gear;
-  // }
-  // map through the recommended gear
   const subDif = JSON.parse(JSON.stringify({difficulty}))
   const subSeason = JSON.parse(JSON.stringify({season}))
 
@@ -178,10 +171,6 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
             <li> Shoes: {recGot.shoes} </li>
           </ul>
           ))}
-          {/*<p>Clothing: {clothing}</p>
-          <p>Hydration Level: {waterlevel}</p>
-          <p>Walking Gear: {walkinggear} </p>
-          <p>Shoes: {shoes} </p>*/}
         </Collapsible>
         <div className="NavigationLink">
           <Button className="NavButton" href = {navLink} target="_blank"> MORE INFO </Button>
