@@ -13,11 +13,14 @@ import JustForYou from './components/page/JustForYou'
 import { callAPI } from './utils/api'
 import { DEFAULT_HIKES } from './common/mockHikes'
 import { callZipAPI } from './utils/zipCoords'
-import { Filter} from './common/model'
+import { Filter, FilterType} from './common/model'
 
 function App() {
   
-  const filterSelection: Filter = {desiredHikes: ""}  
+  const filterSelection: Filter = {
+    desiredHikes: [],
+    filterType: 2
+  }  
   // const [showHikes, setShowHikes] = useState("")
   var lat = 0
   var longt = 0
@@ -45,7 +48,7 @@ function App() {
           {/* <Toggle label="Just For You Hikes" onChange={setShowHikes}/> */}
         </div>
       </div>
-    {filterSelection !== "" (
+    {filterSelection.filterType !== FilterType.None ?(
       <HikeListContainer />
     ) : null }
       <div>
