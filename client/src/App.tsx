@@ -35,7 +35,8 @@ function App() {
 
   callAPI();
   callZipAPI(97701);
-
+  console.log("test1:", filterSelection.filterType === FilterType.None)
+  console.log("Current filtertype:", filterSelection.filterType)
   return (
     <div className="container">
       <div className="titleBar">
@@ -48,9 +49,9 @@ function App() {
           { <Toggle label="Just For You Hikes" onChange={setShowHikes}/>}
         </div> */}
       </div>
-    {filterSelection.filterType !== FilterType.None &&(
-      <HikeListContainer />
-    )}
+      {filterSelection.filterType !== FilterType.None &&(
+          <HikeListContainer />
+        )}
       <div>
         <Location/>
       </div>

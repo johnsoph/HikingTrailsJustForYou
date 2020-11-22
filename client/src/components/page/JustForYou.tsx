@@ -64,14 +64,15 @@ function JustForYou(props: Props) {
 
   const handleSave = () => {
     // save selected value
-    const newFilter: Filter = {
+    const selectedFilter:Filter = {
       // desiredHikes: Hikes[],
       filterType: filterSelection
     }
-    props.updateFilter(newFilter)
+    props.updateFilter(selectedFilter)
 
     // close dialog box
     handleCloseDialog();
+
   };
 
   const handleChange = (e) => {
@@ -79,7 +80,7 @@ function JustForYou(props: Props) {
   }
 
   const getJustForYouDialog = () => {
-    debugger;
+    // debugger;
     return (
       <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">Just For You Settings</DialogTitle>
