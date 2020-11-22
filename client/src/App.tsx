@@ -42,9 +42,7 @@ function App() {
           <Toggle label="Just For You Hikes" onChange={setShowHikes}/>
         </div>
       </div>
-    {showHikes ? (
-      <HikeListContainer />
-    ) : null }
+        {showHikes ? (<HikeListContainer />) : null }
       <div>
         <Location/>
       </div>
