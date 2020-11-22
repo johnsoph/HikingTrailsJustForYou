@@ -26,8 +26,7 @@ function App() {
     console.log("Longitude is :", position.coords.longitude);
   });
 
-  callAPI();
-  callZipAPI(97701);
+  //callZipAPI(97701);
 
   return (
     <div className="container">

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { callAPI } from './utils/api';
 
 class GetCoords extends Component {
   constructor(props) {
@@ -28,17 +29,19 @@ class GetCoords extends Component {
       lastLat: lastLat || this.state.lastLat,
       lastLong: lastLong || this.state.lastLong
     });
-  }
+  callAPI(this.state.lastLat, this.state.lastLong);
+}
 
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchID);
   }
 
+
   render() {
     return (
     <div>
-        <div>Latitude: { this.state.mapRegion.latitude } </div>
-        <div>Longitude: { this.state.mapRegion.longitude } </div>
+        <div>Latitude: { this.state.lastLat } </div>
+        <div>Longitude: { this.state.lastLong } </div>
     </div>
     )
   }

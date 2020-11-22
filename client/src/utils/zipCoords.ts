@@ -3,7 +3,7 @@ import { initCoords } from '../redux/actions'
 
 
 export function callZipAPI(address){
-address = `http://open.mapquestapi.com/geocoding/v1/address?key=tt714D6ycWMbGq0gRvHf6V7l5bAHKyzs&location=United+States+${ address }`; 
+address = `http://open.mapquestapi.com/geocoding/v1/address?key=tt714D6ycWMbGq0gRvHf6V7l5bAHKyzs&location=United+States+${address}`; 
 
 fetch(address)
 // fetch("http://open.mapquestapi.com/geocoding/v1/address?key=tt714D6ycWMbGq0gRvHf6V7l5bAHKyzs&location=1600+Pennsylvania+Ave+NW,Washington,DC,205")
