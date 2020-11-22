@@ -145,7 +145,7 @@ function TitleBarItem(props: Props) {
   
   return (
     <div>
-      <Typography variant="h3" gutterBottom >PataGucci</Typography>
+      <Typography className="WebsiteTitle" variant="h3" gutterBottom >PataGucci</Typography>
       {/* <Typography variant="body1" gutterBottom >{props.user}</Typography> */}
       <Button className="SignUpButton" variant="contained" onClick={handleClickOpenDialog}>
         User Preferences

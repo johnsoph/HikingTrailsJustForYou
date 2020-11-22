@@ -6,7 +6,6 @@ import HikeBoxItem from './components/page/HikeBoxItem'
 import HikeInfoItem from './components/page/HikeInfoItem'
 import TemplateComponent from './components/TemplateComponent'
 import HikeListContainer from './components/page/HikeListContainer'
-import { DirectionsButton } from './components/DirectionsButton'
 import Location from './Location'
 import Toggle from './Toggle'
 import { callAPI } from './utils/api'
@@ -42,9 +41,7 @@ function App() {
           <Toggle label="Just For You Hikes" onChange={setShowHikes}/>
         </div>
       </div>
-    {showHikes ? (
-      <HikeListContainer />
-    ) : null }
+        {showHikes ? (<HikeListContainer />) : null }
       <div>
         <Location/>
       </div>
