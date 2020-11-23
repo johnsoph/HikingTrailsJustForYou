@@ -5,7 +5,6 @@ import { initHikes } from '../redux/actions'
 
 export function callAPI(lat, lon){
   var coord = `https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=10&key=200968807-358e68bfeeebd4e58f0e1c1155369e11`;
-  debugger;
     fetch(coord)
       .then(res => res.json())
       .then(
