@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import TitleBarItem from './components/header/TitleBarItem'
 import HikeListContainer from './components/page/HikeListContainer'
@@ -7,6 +7,7 @@ import JustForYou from './components/page/JustForYou'
 import { callAPI } from './utils/api'
 import { callZipAPI } from './utils/zipCoords'
 import { Filter, FilterType} from './common/model'
+import Toggle from './Toggle';
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
     // desiredHikes: [],
     filterType: 0
   }  
+  const [showHikes, setShowHikes] = useState(false)
+
 
   var lat = 0
   var longt = 0
@@ -36,9 +39,14 @@ function App() {
         <TitleBarItem/>
       </div>
       <div className="filterBar">
+      <div>
         <JustForYou />
       </div>
-      <HikeListContainer/>
+      <div className="toggleButton">
+          <Toggle label="Just For You Hikes" onChange={setShowHikes}/>
+        </div>
+      </div>
+        {showHikes ? (<HikeListContainer />) : null }
       <div>
         <Location/>
       </div>
