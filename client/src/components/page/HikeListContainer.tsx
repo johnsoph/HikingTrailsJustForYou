@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { Hikes } from '../../common/model';
 import { UPDATE_USER } from '../../redux/action-types';
-import { DEFAULT_HIKES } from '../../common/mockHikes';
 import HikeInfoItem from './HikeInfoItem';
 import HikeBoxItem from './HikeBoxItem';
 

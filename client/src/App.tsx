@@ -9,7 +9,6 @@ import HikeListContainer from './components/page/HikeListContainer'
 import Location from './Location'
 import Toggle from './Toggle'
 import { callAPI } from './utils/api'
-import { DEFAULT_HIKES } from './common/mockHikes'
 import { callZipAPI } from './utils/zipCoords'
 
 function App() {
