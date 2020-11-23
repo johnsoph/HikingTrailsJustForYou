@@ -29,21 +29,17 @@ function App() {
 
   callAPI();
   callZipAPI(97701);
-  console.log("test1:", filterSelection.filterType === FilterType.None)
+  console.log("filterType is 0?:", filterSelection.filterType === FilterType.None)
   console.log("Current filtertype:", filterSelection.filterType)
   return (
     <div className="container">
       <div className="titleBar">
         <TitleBarItem/>
       </div>
-
       <div className="filterBar">
         <JustForYou />
-        {/* <div className="toggleButton">
-          { <Toggle label="Just For You Hikes" onChange={setShowHikes}/>}
-        </div> */}
       </div>
-      <HikeListContainer />
+      <HikeListContainer/>
       <div>
         <Location/>
       </div>

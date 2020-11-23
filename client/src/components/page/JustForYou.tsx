@@ -48,11 +48,7 @@ const mapDispatch = {
 
 function JustForYou(props: Props) {
   const [openDialog, setOpenDialog] = React.useState(false);
-  const [filterSelection, setFilterSelection] = React.useState(0);
-  // const [filterSubmit, handleSubmit] = React.useState(props.filter?.desiredHikes);
-
-//   const [submit, handleSave] = React.useState({filterSelection});
-//   const [userHikingExperience, setUserHikingExperience] = React.useState(props.user?.hikingExperience);
+  const [filterSelection, setFilterSelection] = React.useState(props.filter?.filterType);
 
   const handleClickOpenDialog = () => {
     setOpenDialog(true);
@@ -64,13 +60,13 @@ function JustForYou(props: Props) {
   };
 
   const handleSave = () => {
-    // save selected value
-    const newFilter: Filter = {
-      // desiredHikes: Hikes[],
+    const newItem = {
+      desiredHikes: [],
       filterType: filterSelection
     }
-    props.updateFilter(newFilter)
-
+    // save selected value
+    props.updateFilter(newItem)
+    
     // close dialog box
     handleCloseDialog();
   };
