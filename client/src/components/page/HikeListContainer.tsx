@@ -57,8 +57,8 @@ function HikeListContainer(props: Props) {
         />
     }
     
-    return filterSelection !== 0 ? (
-    
+    // return filterSelection !== 0 ? (
+    return (
 
         <>
         <div className="HikeList">
@@ -76,7 +76,8 @@ function HikeListContainer(props: Props) {
           {renderInfoPanel()}
         </div>
       </>
-    ) : null
+    )
+    // ) : null
 }
 
 // Typical usage: `connect` is called after the component is defined
