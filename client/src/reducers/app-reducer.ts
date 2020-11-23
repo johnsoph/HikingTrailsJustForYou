@@ -58,14 +58,9 @@ export default function(state: State = initialState, action) {
         }; 
 
         case UPDATE_FILTER: {
-            const result = {
-                desiredHikes: [],
-                filterType: action.payload,
-            }
-            
             return {
                 ...state,
-                filteredHikes: result
+                filteredHikes: action.payload
             }
         }; 
         

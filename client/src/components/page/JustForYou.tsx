@@ -76,7 +76,6 @@ function JustForYou(props: Props) {
   }
 
   const getJustForYouDialog = () => {
-    debugger;
     return (
       <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">Just For You Settings</DialogTitle>

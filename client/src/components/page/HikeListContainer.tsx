@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 import { Hikes, FilterType, Filter } from '../../common/model';
 import { UPDATE_USER } from '../../redux/action-types';
@@ -41,6 +41,8 @@ function HikeListContainer(props: Props) {
     const [hikes, setHikes] = useState(props.hikes)
     const selectedHike = hikes[selectedHikeIndex]
 
+    // TODO BUG- filterSelection value does not get updated with State changes from Just for you
+
     const renderInfoPanel = ()=>{
         return <HikeInfoItem
           name={selectedHike?.name}
@@ -55,8 +57,7 @@ function HikeListContainer(props: Props) {
         />
     }
     
-
-    return filterSelection !== FilterType.None ? (
+    return filterSelection !== 0 ? (
     
 
         <>
