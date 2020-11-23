@@ -1,4 +1,4 @@
-enum ActivityLevel {
+export enum ActivityLevel {
     "Can I bring my PSL on this hike?" = 1,
     "Can I wear my nikes and look cute?" = 2,
     "I've got hiking boots I never use" = 3,
@@ -6,12 +6,19 @@ enum ActivityLevel {
     "I've got my Arc'terk, Osprey backpack, and Diamond hiking polls ready to go!" = 5,
 }
 
-enum HikingExperience {
+export enum HikingExperience {
     "0 hikes" = 1,
     "1 - 5 hikes" = 2,
     "5 - 10 hikes" = 3,
     "10 - 20 hikes" = 4,
     "20+ hikes" = 5,
+}
+
+export enum DailySteps {
+    "0 steps/day" = 1,
+    "1 - 5,000 steps/day" = 2,
+    "5,001 - 10,000 steps/day" = 3,
+    "10,001+ steps/day" = 4,
 }
 
 export interface User {

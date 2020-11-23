@@ -41,9 +41,6 @@ function HikeListContainer(props: Props) {
     const [hikes, setHikes] = useState(props.hikes)
     const selectedHike = hikes[selectedHikeIndex]
 
-    console.log("HLC: filterType is 0?:", filterSelection !== FilterType.None)
-    console.log("HLC: Current filtertype:", filterSelection)
-
     const renderInfoPanel = ()=>{
         return <HikeInfoItem
           name={selectedHike?.name}
@@ -72,10 +69,9 @@ function HikeListContainer(props: Props) {
               description={hike?.summary}
               handleClick={() => setSelectedHikeIndex(index)}
             />
-            // <src img="f"></src>
           ))}
-          </div>
-          <div className="InfoList">
+        </div>
+        <div className="InfoList">
           {renderInfoPanel()}
         </div>
       </>
