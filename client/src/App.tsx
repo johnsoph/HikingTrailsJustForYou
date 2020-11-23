@@ -27,10 +27,9 @@ function App() {
     console.log("Longitude is :", position.coords.longitude);
   });
 
-  callAPI();
-  callZipAPI(97701);
-  console.log("filterType is 0?:", filterSelection.filterType === FilterType.None)
-  console.log("Current filtertype:", filterSelection.filterType)
+  // console.log("filterType is 0?:", filterSelection.filterType === FilterType.None)
+  // console.log("Current filtertype:", filterSelection.filterType)
+
   return (
     <div className="container">
       <div className="titleBar">
