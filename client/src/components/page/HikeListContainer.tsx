@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
-import { Hikes } from '../../common/model';
+import { Hikes, FilterType, Filter } from '../../common/model';
 import { UPDATE_USER } from '../../redux/action-types';
+// import { DEFAULT_HIKES } from '../../common/mockHikes';
 import HikeInfoItem from './HikeInfoItem';
 import HikeBoxItem from './HikeBoxItem';
 
 // type definitions
 interface StateProps {
   hikes: Hikes[],
+  filter: Filter;
 }
 
 // type definiton
@@ -24,7 +26,8 @@ type Props = StateProps & DispatchProps & OwnProps
 
 // redux state objects
 const mapState = (state: any) => ({
-  hikes: state.hikes
+  hikes: state.hikes,
+  filter: state.filteredHikes
 })
 
 // actions
@@ -33,9 +36,13 @@ const mapDispatch = {
 }
 
 function HikeListContainer(props: Props) {
+    const [filterSelection, setFilterSection] = useState(props.filter?.filterType)
     const [selectedHikeIndex, setSelectedHikeIndex] = useState(0)
     const [hikes, setHikes] = useState(props.hikes)
     const selectedHike = hikes[selectedHikeIndex]
+
+    // TODO BUG- filterSelection value does not get updated with State changes from Just for you
+
     const renderInfoPanel = ()=>{
         return <HikeInfoItem
           name={selectedHike?.name}
@@ -49,8 +56,9 @@ function HikeListContainer(props: Props) {
           destination={`${selectedHike?.latitude},${selectedHike?.longitude}`}
         />
     }
-
-    return(
+    
+    // return filterSelection !== 0 ? (
+    return (
 
         <>
         <div className="HikeList">
@@ -68,7 +76,9 @@ function HikeListContainer(props: Props) {
           {renderInfoPanel()}
         </div>
       </>
-)}
+    )
+    // ) : null
+}
 
 // Typical usage: `connect` is called after the component is defined
 export default connect<StateProps, DispatchProps, OwnProps>(
