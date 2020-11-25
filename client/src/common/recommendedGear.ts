@@ -8,6 +8,10 @@ export const recommendedGear = [
     walkingGear: 'None',
     hydrationLevel: 'Water bottle or small hydration pack',
     shoes: 'Running Shoes or Water Proof Shoes',
+    clothingReason: 'These clothing items are recommended because it is winter and the outdoors have a tendency to be chilly. This hike is not intense at all and will not require more than what you would have put on for going out of the house. ',
+    walkingGearReason: 'There is no walking gear recommended because this hike should not be too steep or too long. This trail should be easy enough to enjoy at any pace!',
+    hydrationLevelReason: 'The hydration level is based on how relaxed this hike is. Drinking water is very important when being physical and moving around. Make sure you drink enough to not feel thirsty! ',
+    shoesReason: 'Running Shoes or Water Proof Shoes are recommended based on the relaxed nature of the trail. The terrain should not be too difficult, but watch out for puddles or snow if it is snowy or raining during the winter. '
   },
   {
     id: 2,
@@ -17,6 +21,10 @@ export const recommendedGear = [
     walkingGear: 'None',
     hydrationLevel: 'Water bottle or medium hydration pack',
     shoes: 'Running Shoes or Comfortable Shoes',
+    clothingReason: '',
+    walkingGearReason: '',
+    hydrationLevelReason: '',
+    shoesReason: ''
   },
   {
     id: 3,
@@ -26,6 +34,10 @@ export const recommendedGear = [
     walkingGear: 'None',
     hydrationLevel: 'Water bottle or medium hydration pack',
     shoes: 'Running Shoes or Water Proof Shoes or Hiking Boots',
+    clothingReason: '',
+    walkingGearReason: '',
+    hydrationLevelReason: '',
+    shoesReason: ''
   },
   {
     id: 4,
@@ -35,6 +47,10 @@ export const recommendedGear = [
     walkingGear: 'None',
     hydrationLevel: 'Water bottle or medium hydration pack',
     shoes: 'Running Shoes',
+    clothingReason: '',
+    walkingGearReason: '',
+    hydrationLevelReason: '',
+    shoesReason: ''
   },
   {
     id: 5,
@@ -44,6 +60,10 @@ export const recommendedGear = [
     walkingGear: 'None',
     hydrationLevel: 'Large Water bottle or Full hydration pack',
     shoes: 'Running Shoes or Water Proof Shoes or Hiking Boots',
+    clothingReason: '',
+    walkingGearReason: '',
+    hydrationLevelReason: '',
+    shoesReason: ''
   },
   {
     id: 6,
@@ -53,6 +73,10 @@ export const recommendedGear = [
     walkingGear: 'None',
     hydrationLevel: 'Water bottle or full hydration pack',
     shoes: 'Running Shoes',
+    clothingReason: '',
+    walkingGearReason: '',
+    hydrationLevelReason: '',
+    shoesReason: ''
   },
   {
     id: 7,
@@ -62,6 +86,10 @@ export const recommendedGear = [
     walkingGear: 'Walking Sticks',
     hydrationLevel: 'Large Water bottle or Full hydration pack',
     shoes: 'Hiking Boots',
+    clothingReason: '',
+    walkingGearReason: '',
+    hydrationLevelReason: '',
+    shoesReason: ''
   },
   {
     id: 8,
@@ -71,6 +99,10 @@ export const recommendedGear = [
     walkingGear: 'Walking Sticks',
     hydrationLevel: 'Large Water bottle or full hydration pack',
     shoes: 'Running Shoes',
+    clothingReason: '',
+    walkingGearReason: '',
+    hydrationLevelReason: '',
+    shoesReason: ''
   },
   {
     id: 9,
@@ -80,6 +112,10 @@ export const recommendedGear = [
     walkingGear: 'Walking Sticks',
     hydrationLevel: 'Large Water bottle, Full hydration pack, or water filter',
     shoes: 'Hiking Boots and/or Gaiters',
+    clothingReason: '',
+    walkingGearReason: '',
+    hydrationLevelReason: '',
+    shoesReason: ''
   },
   {
     id: 10,
@@ -89,6 +125,10 @@ export const recommendedGear = [
     walkingGear: 'Walking Sticks',
     hydrationLevel: 'Large Water bottle or full hydration pack',
     shoes: 'Running Shoes',
+    clothingReason: '',
+    walkingGearReason: '',
+    hydrationLevelReason: '',
+    shoesReason: ''
   },
   {
     id: 11,
@@ -98,6 +138,10 @@ export const recommendedGear = [
     walkingGear: 'Walking Sticks',
     hydrationLevel: 'Large Water bottle, Full hydration pack, or water filter',
     shoes: 'Hiking Boots and/or Gaiters',
+    clothingReason: '',
+    walkingGearReason: '',
+    hydrationLevelReason: '',
+    shoesReason: ''
   },
   {
     id: 12,
@@ -107,5 +151,9 @@ export const recommendedGear = [
     walkingGear: 'Walking Sticks',
     hydrationLevel: 'Large Water bottle or full hydration pack',
     shoes: 'Running Shoes',
+    clothingReason: '',
+    walkingGearReason: '',
+    hydrationLevelReason: '',
+    shoesReason: ''
   }
 ]
