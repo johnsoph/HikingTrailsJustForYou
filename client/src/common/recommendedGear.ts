@@ -8,6 +8,10 @@ export const recommendedGear = [
     walkingGear: 'None',
     hydrationLevel: 'Water bottle or small hydration pack',
     shoes: 'Running Shoes or Water Proof Shoes',
+    clothingReason: 'These clothing items are recommended because it is winter and the outdoors have a tendency to be chilly. This hike is not intense at all and will not require more than what you would have put on for going out of the house. ',
+    walkingGearReason: 'There is no walking gear recommended because this hike should not be too steep or too long. This trail should be easy enough to enjoy at any pace!',
+    hydrationLevelReason: 'The hydration level is based on how relaxed this hike is. Drinking water is very important when being physical and moving around. Make sure you drink enough to not feel thirsty! ',
+    shoesReason: 'Running Shoes or Water Proof Shoes are recommended based on the relaxed nature of the trail. The terrain should not be too difficult, but watch out for puddles or snow if it is snowy or raining during the winter. '
   },
   {
     id: 2,
@@ -17,6 +21,10 @@ export const recommendedGear = [
     walkingGear: 'None',
     hydrationLevel: 'Water bottle or medium hydration pack',
     shoes: 'Running Shoes or Comfortable Shoes',
+    clothingReason: 'These clothing items are recommended because it is summertime and the outdoors tend to be hot even on sheltered trails. This hike is not intense at all and will not require more than what you would have put on for going out of the house.',
+    walkingGearReason: 'There is no walking gear recommended because this hike should not be too steep or too long. This trail should be easy enough to enjoy at any pace!',
+    hydrationLevelReason: 'The hydration level is based on how relaxed this hike is. Drinking water is very important when being physical and moving around. Make sure you drink enough to not feel thirsty and pack enough for the whole trip!',
+    shoesReason: 'Running Shoes or Comfortable Shoes are recommended based on the relaxed nature of the trail. The terrain should not be too difficult compare to day to day activities.'
   },
   {
     id: 3,
@@ -26,6 +34,10 @@ export const recommendedGear = [
     walkingGear: 'None',
     hydrationLevel: 'Water bottle or medium hydration pack',
     shoes: 'Running Shoes or Water Proof Shoes or Hiking Boots',
+    clothingReason: 'These clothing items are recommended because it is winter and the outdoors tend to be chilly. This hike is not intense at all and will not require more than what you would have put on for going out of the house.',
+    walkingGearReason: 'There is no walking gear recommended because this hike should not be too steep or too long. This trail should be easy enough to enjoy at any pace!',
+    hydrationLevelReason: 'The hydration level is based on how relaxed this hike is. Drinking water is very important when being physical and moving around. Make sure you drink enough to not feel thirsty and pack enough for the whole trip!',
+    shoesReason: 'Running Shoes or Water Proof Shoes or Hiking Boots are recommended based on the nature of the trail. The terrain should not be too difficult, but watch out for puddles or snow if it is snowy or raining during the winter.'
   },
   {
     id: 4,
@@ -35,6 +47,10 @@ export const recommendedGear = [
     walkingGear: 'None',
     hydrationLevel: 'Water bottle or medium hydration pack',
     shoes: 'Running Shoes',
+    clothingReason: 'These clothing items are recommended because it is summertime and the outdoors tend to be hot even on sheltered trails. This hike is not too intense and should not require more than what you would have put on for going out of the house. Take care to be prepared!',
+    walkingGearReason: 'There is no walking gear recommended because this hike should not be too steep or too long. This trail should be easy enough to enjoy at any pace!',
+    hydrationLevelReason: 'The hydration level is based on how relaxed this hike is. Drinking water is very important when being physical and moving around. Make sure you drink enough to not feel thirsty and pack enough for the whole trip!',
+    shoesReason: 'Running Shoes are recommended based on the less relaxed nature of the trail. The terrain might be a little more difficult compare to day to day activities.'
   },
   {
     id: 5,
@@ -44,6 +60,10 @@ export const recommendedGear = [
     walkingGear: 'None',
     hydrationLevel: 'Large Water bottle or Full hydration pack',
     shoes: 'Running Shoes or Water Proof Shoes or Hiking Boots',
+    clothingReason: 'These clothing items are recommended because it is summertime and the outdoors tend to be hot even on sheltered trails. This hike is might be more than you are used to, so be prepared for more than what you would have put on for going out of the house. Take care against exposure and snow!',
+    walkingGearReason: 'There is no walking gear recommended because this hike should not be too steep or too long. This trail should be easy enough to enjoy at any pace!',
+    hydrationLevelReason: 'The hydration level is based on how relaxed this hike is. Drinking water is very important when being physical and moving around. Make sure you drink enough to not feel thirsty and pack enough for the whole trip! Plan and bring more than you need! Water is extremely important.',
+    shoesReason: 'Running Shoes or Water Proof Shoes or Hiking Boots are recommended based on the nature of the trail. The terrain should not be too difficult, but watch out for puddles or snow if it is snowy or raining during the winter.'
   },
   {
     id: 6,
@@ -53,6 +73,10 @@ export const recommendedGear = [
     walkingGear: 'None',
     hydrationLevel: 'Water bottle or full hydration pack',
     shoes: 'Running Shoes',
+    clothingReason: 'These clothing items are recommended because it is summertime and the outdoors tend to be hot even on sheltered trails. This hike is might be more than you are used to, so be prepared for more than what you would have put on for going out of the house. Take care against exposure and sun!',
+    walkingGearReason: 'There is no walking gear recommended because this hike should not be too steep or too long. This trail should be easy enough to enjoy at any pace!',
+    hydrationLevelReason: 'The hydration level is based on how relaxed this hike is. Drinking water is very important when being physical and moving around. Make sure you drink enough to not feel thirsty and pack enough for the whole trip! Plan and bring more than you need! Water is extremely important.',
+    shoesReason: 'Running Shoes are recommended based on the less relaxed nature of the trail. The terrain might be a little more difficult compare to day to day activities.'
   },
   {
     id: 7,
@@ -62,6 +86,10 @@ export const recommendedGear = [
     walkingGear: 'Walking Sticks',
     hydrationLevel: 'Large Water bottle or Full hydration pack',
     shoes: 'Hiking Boots',
+    clothingReason: 'These clothing items are recommended because it is summertime and the outdoors tend to be hot even on sheltered trails. This hike is might be more than you are used to, so be prepared for more than what you would have put on for going out of the house. Take care against exposure and snow by wearing a windbreaker, quick-drying long pants, a heavy jacket, multiple layers, beanie, and/or gloves!',
+    walkingGearReason: 'There is walking gear recommended for this hike because it might be too steep or too long to do without proper support. This trail could be difficult and require more help to enjoy it!',
+    hydrationLevelReason: 'The hydration level is based on how relaxed this hike is. Drinking water is very important when being physical and moving around. Make sure you drink enough to not feel thirsty and pack enough for the whole trip! Plan and bring more than you need! Water is extremely important.',
+    shoesReason: 'Hiking Boots are recommended based on the more difficult nature of the trail. The terrain should be more difficult than normal and good hiking boots are important for traction and heat preservation. '
   },
   {
     id: 8,
@@ -71,6 +99,10 @@ export const recommendedGear = [
     walkingGear: 'Walking Sticks',
     hydrationLevel: 'Large Water bottle or full hydration pack',
     shoes: 'Running Shoes',
+    clothingReason: 'These clothing items are recommended because it is summertime and the outdoors tend to be hot even on sheltered trails. This hike is might be more than you are used to, so be prepared for more than what you would have put on for going out of the house. Take care against exposure and sun by wearing long sleeves, large hats, and lots of sun screen!!',
+    walkingGearReason: 'There is walking gear recommended for this hike because it might be too steep or too long to do without proper support. This trail could be difficult and require more help to enjoy it!',
+    hydrationLevelReason: 'The hydration level is based on how relaxed this hike is. Drinking water is very important when being physical and moving around. Make sure you drink enough to not feel thirsty and pack enough for the whole trip! Plan and bring more than you need! Water is extremely important.',
+    shoesReason: 'Running Shoes are recommended based on the less relaxed nature of the trail. The terrain might be a little more difficult compare to day to day activities.'
   },
   {
     id: 9,
@@ -80,6 +112,10 @@ export const recommendedGear = [
     walkingGear: 'Walking Sticks',
     hydrationLevel: 'Large Water bottle, Full hydration pack, or water filter',
     shoes: 'Hiking Boots and/or Gaiters',
+    clothingReason: 'These clothing items are recommended because it is summertime and the outdoors tend to be hot even on sheltered trails. This hike is might be more than you are used to, so be prepared for more than what you would have put on for going out of the house. Take care against exposure and snow by wearing a windbreaker, quick-drying long pants, a heavy jacket, multiple layers, beanie, and/or gloves! Know how long you are gonna be out and take breaks!',
+    walkingGearReason: 'There is walking gear recommended for this hike because it might be too steep or too long to do without proper support. This trail could be difficult and require more help to enjoy it!',
+    hydrationLevelReason: 'The hydration level is based on how relaxed this hike is. Drinking water is very important when being physical and moving around. Make sure you drink enough to not feel thirsty and pack enough for the whole trip! Plan and bring more than you need! Water is extremely important.',
+    shoesReason: 'Hiking Boots are recommended based on the more difficult nature of the trail. Gaiters will come in handy when the snow gets very tall and protects your feet and lower legs from getting soaked through. The terrain should be more difficult than normal and good hiking boots are important for traction and heat preservation. '
   },
   {
     id: 10,
@@ -89,6 +125,10 @@ export const recommendedGear = [
     walkingGear: 'Walking Sticks',
     hydrationLevel: 'Large Water bottle or full hydration pack',
     shoes: 'Running Shoes',
+    clothingReason: 'These clothing items are recommended because it is summertime and the outdoors tend to be hot even on sheltered trails. This hike is might be more than you are used to, so be prepared for more than what you would have put on for going out of the house. Be very careful and take care against exposure and sun by wearing long sleeves, large hats, and lots of sunscreen! Know how long you are gonna be in the sun and take breaks!',
+    walkingGearReason: 'There is walking gear recommended for this hike because it might be too steep or too long to do without proper support. This trail could be difficult and require more help to enjoy it!',
+    hydrationLevelReason: 'The hydration level is based on how relaxed this hike is. Drinking water is very important when being physical and moving around. Make sure you drink enough to not feel thirsty and pack enough for the whole trip! Plan and bring more than you need! Water is extremely important.',
+    shoesReason: 'Running Shoes are recommended based on the less relaxed nature of the trail. The terrain might be more difficult compare to day to day activities.'
   },
   {
     id: 11,
@@ -98,6 +138,10 @@ export const recommendedGear = [
     walkingGear: 'Walking Sticks',
     hydrationLevel: 'Large Water bottle, Full hydration pack, or water filter',
     shoes: 'Hiking Boots and/or Gaiters',
+    clothingReason: 'These clothing items are recommended because it is summertime and the outdoors tend to be hot even on sheltered trails. This hike is might be more than you are used to, so be prepared for more than what you would have put on for going out of the house. Take care against exposure and snow by wearing a windbreaker, quick-drying long pants, a heavy jacket, multiple layers, beanie, and/or gloves! Know how long you are gonna be out and take breaks!',
+    walkingGearReason: 'There is walking gear recommended for this hike because it might be too steep or too long to do without proper support. This trail could be difficult and require more help to enjoy it!',
+    hydrationLevelReason: 'The hydration level is based on how relaxed this hike is. Drinking water is very important when being physical and moving around. Make sure you drink enough to not feel thirsty and pack enough for the whole trip! Plan and bring more than you need! Water is extremely important.',
+    shoesReason: 'Hiking Boots are recommended based on the more difficult nature of the trail. Gaiters will come in handy when the snow gets very tall and protects your feet and lower legs from getting soaked through. The terrain should be more difficult than normal and good hiking boots are important for traction and heat preservation. '
   },
   {
     id: 12,
@@ -107,5 +151,9 @@ export const recommendedGear = [
     walkingGear: 'Walking Sticks',
     hydrationLevel: 'Large Water bottle or full hydration pack',
     shoes: 'Running Shoes',
+    clothingReason: 'These clothing items are recommended because it is summertime and the outdoors tend to be hot even on sheltered trails. This hike is might be more than you are used to, so be prepared for more than what you would have put on for going out of the house. Be very careful and take care against exposure and sun by wearing long sleeves, large hats, and lots of sunscreen! Know how long you are gonna be in the sun and take breaks!',
+    walkingGearReason: 'There is walking gear recommended for this hike because it might be too steep or too long to do without proper support. This trail could be difficult and require more help to enjoy it!',
+    hydrationLevelReason: 'The hydration level is based on how relaxed this hike is. Drinking water is very important when being physical and moving around. Make sure you drink enough to not feel thirsty and pack enough for the whole trip! Plan and bring more than you need! Water is extremely important.',
+    shoesReason: 'Running Shoes are recommended based on the less relaxed nature of the trail. The terrain might be more difficult compare to day to day activities.'
   }
 ]
