@@ -5,11 +5,17 @@ import { DirectionsButton } from './DirectionsButton';
 import '../../App.css'
 import 'lodash'
 import { recommendedGear } from '../.././common/recommendedGear'
+import HoverComponent from './HoverComponent'
+import ReactHover, { Trigger, Hover } from './hovering/ReactHover'
 
 var lat = 0
 var season = 'LOADING'
 
-
+const optionsCursorTrueWithMargin = {
+  followCursor: true,
+  shiftX: 20,
+  shiftY: 0,
+}
 
 
 const getSeason = (latitude, month) => {
@@ -53,13 +59,41 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
           <li> Sun Protection like Sunglasses and/or Sunscreen </li>
           <li> Emergency Fire Starting tools like Matches, Lighter, and/or Tinder </li>
           </ul>
-          <p> For this Hike: </p>
+          <p> For this Hike(Hover for more Info!): </p>
           {recommendedGear.filter(rec => rec.difficultyLevel === subDif.difficulty && rec.season === subSeason.season).map(recGot =>(
           <ul>
-            <li> Clothing: {recGot.clothing} </li>
-            <li> Walking Gear: {recGot.walkingGear} </li>
-            <li> Water: {recGot.hydrationLevel} </li>
-            <li> Shoes: {recGot.shoes} </li>
+            <ReactHover options={optionsCursorTrueWithMargin}>
+                <Trigger type="trigger">
+                  <li> Clothing: {recGot.clothing} </li>
+                </Trigger>
+                <Hover type="hover">
+                  <HoverComponent explantion={recGot.clothingReason} />
+                </Hover>
+            </ReactHover>
+            <ReactHover options={optionsCursorTrueWithMargin}>
+                <Trigger type="trigger">
+                  <li> Walking Gear: {recGot.walkingGear} </li>
+                </Trigger>
+                <Hover type="hover">
+                  <HoverComponent explantion={recGot.walkingGearReason}/>
+                </Hover>
+            </ReactHover>
+            <ReactHover options={optionsCursorTrueWithMargin}>
+                <Trigger type="trigger">
+                  <li> Water: {recGot.hydrationLevel} </li>
+                </Trigger>
+                <Hover type="hover">
+                  <HoverComponent explantion={recGot.hydrationLevelReason}/>
+                </Hover>
+            </ReactHover>
+            <ReactHover options={optionsCursorTrueWithMargin}>
+                <Trigger type="trigger">
+                  <li> Shoes: {recGot.shoes} </li>
+                </Trigger>
+                <Hover type="hover">
+                  <HoverComponent explantion={recGot.shoesReason}/>
+                </Hover>
+            </ReactHover>
           </ul>
           ))}
         </Collapsible>
