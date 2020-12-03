@@ -11,10 +11,10 @@ import { Filter, FilterType} from './common/model'
 
 function App() {
   
-  const filterSelection: Filter = {
-    // desiredHikes: [],
-    filterType: 0
-  }  
+  // const filterSelection: Filter = {
+  //   desiredHikes: [],
+  //   filterType: 0
+  // }  
 
   var lat = 0
   var longt = 0
@@ -29,8 +29,8 @@ function App() {
 
   callAPI();
   callZipAPI(97701);
-  console.log("filterType is 0?:", filterSelection.filterType === FilterType.None)
-  console.log("Current filtertype:", filterSelection.filterType)
+  // console.log("filterType is 0?:", filterSelection.filterType === FilterType.None)
+  // console.log("Current filtertype:", filterSelection.filterType)
   return (
     <div className="container">
       <div className="titleBar">

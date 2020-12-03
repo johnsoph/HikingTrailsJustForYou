@@ -62,8 +62,11 @@ function JustForYou(props: Props) {
   };
 
   const handleSave = () => {
-    let hikeDifficultyOptions: Array<string> = filterHikes(filterSelection, props.hikingLevel?.hikingLevel)
-
+    // console.log("hikingLevel: ", props.hikingLevel);
+    // let temp = props.hikingLevel;
+    let hikeDifficultyOptions: Array<string> = filterHikes(filterSelection, props.hikingLevel)
+    // console.log("JFY:", hikeDifficultyOptions);
+    debugger;
     const newItem = {
       desiredHikes: hikeDifficultyOptions
     }

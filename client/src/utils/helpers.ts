@@ -24,15 +24,15 @@ export function calculateUserLevel(user: User): number {
     return userLevel;
 };
 
-export function filterHikes(filterSelection: number, hikingLevel: number): Array<string>{
+export function filterHikes(filterSelection: number, hikingLevel): Array<string>{
     let hikeDifficulty : Array<string> = [];
     let desiredHikes : number = filterSelection + hikingLevel;
-    const HDiffs = ["green", "greenBlue", "blue", "blueBlack", "black", "blackBlack"];
+    const HDiffs = ["green", "greenBlue", "blue", "blueBlack", "black", "blackBlack", "nearby"];
 
-    // filter   0 = Nearby
-    //          1 = Easy and Chill
-    //          2 = Best Match
-    //          3 = Challenging
+    // filterSelection      0 = Nearby
+    //                      1 = Easy and Chill
+    //                      2 = Best Match
+    //                      3 = Challenging
 
     // hike difficulties from api (string)
     // green
@@ -41,33 +41,40 @@ export function filterHikes(filterSelection: number, hikingLevel: number): Array
     // blueBlack
     // black        - guess
     // blackBlack   - guess
+    debugger;
 
-    if(desiredHikes === (2 || 3)){
-        // show green 
-        hikeDifficulty.push(HDiffs[0]);
+    if(filterSelection === 0){
+        hikeDifficulty.push(HDiffs[6])
     }
-    
-    else if(desiredHikes === (4 || 5)){
-        // show greenBlue & blue
-        hikeDifficulty.push(HDiffs[1]);
-        hikeDifficulty.push(HDiffs[2]);
-    }
+    else{
 
-    else if(desiredHikes === 6){
-        // show blue & blueBlack
-        hikeDifficulty.push(HDiffs[2]);
-        hikeDifficulty.push(HDiffs[3]);
-    }
+        if(desiredHikes === (2 || 3)){
+            // show green 
+            hikeDifficulty.push(HDiffs[0]);
+        }
+        
+        else if(desiredHikes === (4 || 5)){
+            // show greenBlue & blue
+            hikeDifficulty.push(HDiffs[1]);
+            hikeDifficulty.push(HDiffs[2]);
+        }
 
-    else if(desiredHikes === 7){
-        // show blueBlack & black 
-        hikeDifficulty.push(HDiffs[3]);
-        hikeDifficulty.push(HDiffs[4]);
-    }
+        else if(desiredHikes === 6){
+            // show blue & blueBlack
+            hikeDifficulty.push(HDiffs[2]);
+            hikeDifficulty.push(HDiffs[3]);
+        }
 
-    else if(desiredHikes === 8){
-        // show blackBlack
-        hikeDifficulty.push(HDiffs[5]);
+        else if(desiredHikes === 7){
+            // show blueBlack & black 
+            hikeDifficulty.push(HDiffs[3]);
+            hikeDifficulty.push(HDiffs[4]);
+        }
+
+        else if(desiredHikes === 8){
+            // show blackBlack
+            hikeDifficulty.push(HDiffs[5]);
+        }
     }
 
     return hikeDifficulty;

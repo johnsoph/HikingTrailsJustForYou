@@ -62,7 +62,7 @@ export interface Filter {
 }
 
 export interface HikingLevel{
-    hikingLevel: number;
+    hikingLevel: any;
 }
 
 

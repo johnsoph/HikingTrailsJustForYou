@@ -9,7 +9,7 @@ import HikeBoxItem from './HikeBoxItem';
 // type definitions
 interface StateProps {
   hikes: Hikes[],
-  filter: Filter;
+  // filter: Filter;
 }
 
 // type definiton
@@ -27,7 +27,7 @@ type Props = StateProps & DispatchProps & OwnProps
 // redux state objects
 const mapState = (state: any) => ({
   hikes: state.hikes,
-  filter: state.filteredHikes
+  // filter: state.filteredHikes
 })
 
 // actions
@@ -36,7 +36,7 @@ const mapDispatch = {
 }
 
 function HikeListContainer(props: Props) {
-    const [filterSelection, setFilterSection] = useState(props.filter?.filterType)
+    const [filterSelection, setFilterSection] = useState(1);
     const [selectedHikeIndex, setSelectedHikeIndex] = useState(0)
     const [hikes, setHikes] = useState(props.hikes)
     const selectedHike = hikes[selectedHikeIndex]
