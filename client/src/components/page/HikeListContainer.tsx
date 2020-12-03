@@ -27,8 +27,9 @@ type Props = StateProps & DispatchProps & OwnProps
 // redux state objects
 const mapState = (state: any) => ({
   hikes: state.hikes,
-  filter: state.filteredHikes
+  filter: state.filteredHikes,
 })
+
 
 // actions
 const mapDispatch = {

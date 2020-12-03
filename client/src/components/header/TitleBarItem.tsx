@@ -81,7 +81,7 @@ function TitleBarItem(props: Props) {
     props.updateHikingLevel(hikingLevel);
     props.updateUser(newUser);
     handleCloseDialog();
-  }
+}
 
   const getUserPreferenceDialog = () => {
     return (

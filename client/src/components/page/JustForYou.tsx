@@ -13,6 +13,7 @@ import FormControl from '@material-ui/core/FormControl';
 import { UPDATE_FILTER } from '../../redux/action-types';
 import { Filter, FilterType, Hikes } from '../../common/model';
 import { number } from 'prop-types';
+import { callZipAPI, loadHikesByZip } from '../../utils/zipCoords'
 
 // import FilterBarItem from '../FilterBarItem';
 
@@ -55,7 +56,8 @@ function JustForYou(props: Props) {
   };
 
   const handleCloseDialog = () => {
-
+    callZipAPI((document.getElementById("zipCode") as HTMLInputElement).value);
+    loadHikesByZip();
     setOpenDialog(false);
   };
 
@@ -95,7 +97,7 @@ function JustForYou(props: Props) {
                     <MenuItem value={2}>Best Match, My Fitness Level</MenuItem>
                     <MenuItem value={3}>Challenge Me</MenuItem>
                 </Select>
-                <input type="text" placeholder="Zip Code"/>
+                <input type="text" placeholder="Zip Code" id="zipCode" />
             </FormControl>
           </DialogContent>
           <DialogActions>
