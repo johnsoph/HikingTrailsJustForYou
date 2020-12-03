@@ -98,7 +98,7 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
           ))}
         </Collapsible>
         <div className="NavigationLink">
-          <Button className="NavButton" href = {navLink} target="_blank"> MORE INFO </Button>
+          <Button className="NavButton" style={{fontFamily: 'Concert One'}} href = {navLink} target="_blank"> MORE INFO </Button>
         </div>
       </div>
     </>

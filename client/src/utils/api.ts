@@ -26,4 +26,5 @@ export function callAPI(lat, lon){
         //   });
         }
       )
+     //return null;
     }

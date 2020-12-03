@@ -1,10 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
 *,*::before, *::after {
   box-sizing: border-box;
 }
 
 body{
   margin: 0;
-  background-color: #DADADA
+  background-image: linear-gradient(to right, #014421e0, #228b22c5), url(./assets/images/eric-muhr-forest.jpg);
+  background-size: cover;
+  background-position: top;
+  color: white;
+  font-family: 'Concert One';
+  text-shadow: .5px .5px #0c0c0c;
+
 }
 
 .NavButton{
@@ -18,10 +26,14 @@ body{
   font-size: 16px;
 }
 
+.SignUpButton {
+  margin-right: 20px;
+}
+
 .container{
   display: grid;
   grid-template-columns: 40vw 1fr;
-  grid-template-rows: 15vh 15vh 1fr;
+  grid-template-rows: 20vh 12vh 1fr;
   grid-template-areas:
     "title title"
     "filter filter"
@@ -32,33 +44,62 @@ body{
   grid-area: filter;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  align-items: flex-end;
+  justify-content: right;
+  
 }
 
 .titleBar{
   grid-area: title;
+  height: 25vh;
   background-color: hsl(46, 38%, 36%);
   /*border-bottom: 1px solid hsl(46, 38%, 15%);*/
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+
+  box-shadow: 10px 10px 17px 0px #000000;
 }
 
-.WebsiteTitle{
-  flex-grow: 1;
-  font-size: 60px;
+.primary-header {
+  color: #fff;
+  font-family: BelweBold;
 }
+
+.primary-header-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: -2px;
+  display: flex;
+  justify-content: center;
+}
+
+.primary-header-sub {
+  display: block;
+  font-size:20px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.options-box {
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+}
+
 .HikeList{
   grid-area: hikes;
 }
+
 .InfoList{
   grid-area: info;
 }
+
 .HikeItem{
   border-radius: 25px;
   border: 1px outset black;
   background-color: white;
+  color: black;
+  text-shadow: .5px .5px white;
   text-align: left;
   padding: 20px;
   width: 35vw;
@@ -95,6 +136,8 @@ body{
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin: 2.5px;
+  margin-right: 7.5px;
 }
 
 .switch input {
