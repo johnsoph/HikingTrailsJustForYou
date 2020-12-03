@@ -28,7 +28,6 @@ const initialState = {
 
     filteredHikes: {
         desiredHikes: [],
-        filterType: 0,
     },
     hikingLevel: null,
 };
@@ -58,14 +57,15 @@ export default function(state: State = initialState, action) {
         }; 
 
         case UPDATE_FILTER: {
-            const result = {
-                desiredHikes: [],
-                filterType: action.payload,
-            }
+            // const result = {
+            //     desiredHikes: [],
+            //     filterType: action.payload,
+            // }
             
             return {
                 ...state,
-                filteredHikes: result
+                // filteredHikes: result
+                desiredHikes: action.payload
             }
         }; 
         

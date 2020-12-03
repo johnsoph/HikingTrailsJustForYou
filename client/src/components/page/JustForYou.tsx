@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from "react-redux";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -11,8 +11,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { Typography, Select, MenuItem } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import { UPDATE_FILTER } from '../../redux/action-types';
-import { Filter, FilterType, Hikes } from '../../common/model';
-import { number } from 'prop-types';
+import { Filter, HikingLevel } from '../../common/model';
+import { filterHikes } from '../../utils/helpers';
 
 // import FilterBarItem from '../FilterBarItem';
 
@@ -20,6 +20,7 @@ import { number } from 'prop-types';
 // type definitions
 interface StateProps {
   filter: Filter;
+  hikingLevel: HikingLevel;
   // disiredHikes: Hikes;
 }
 
@@ -37,7 +38,8 @@ type Props = StateProps & DispatchProps & OwnProps
 
 // redux state objects
 const mapState = (state: any) => ({
-  filter: state.filter
+  filter: state.filter,
+  hikingLevel: state.hikingLevel
 });
 
 // actions
@@ -48,7 +50,7 @@ const mapDispatch = {
 
 function JustForYou(props: Props) {
   const [openDialog, setOpenDialog] = React.useState(false);
-  const [filterSelection, setFilterSelection] = React.useState(props.filter?.filterType);
+  const [filterSelection, setFilterSelection] = useState(0);
 
   const handleClickOpenDialog = () => {
     setOpenDialog(true);
@@ -60,9 +62,10 @@ function JustForYou(props: Props) {
   };
 
   const handleSave = () => {
+    let hikeDifficultyOptions: Array<string> = filterHikes(filterSelection, props.hikingLevel?.hikingLevel)
+
     const newItem = {
-      desiredHikes: [],
-      filterType: filterSelection
+      desiredHikes: hikeDifficultyOptions
     }
     // save selected value
     props.updateFilter(newItem)
@@ -101,11 +104,11 @@ function JustForYou(props: Props) {
           </DialogContent>
           <DialogActions>
           <Button onClick={handleSave} color="primary">
-              Save
-            </Button>
-            <Button onClick={handleCloseDialog} color="primary">
-              Cancel
-            </Button>
+            Save
+          </Button>
+          <Button onClick={handleCloseDialog} color="primary">
+            Cancel
+          </Button>
           </DialogActions>
         </Dialog>
     )
@@ -123,8 +126,6 @@ function JustForYou(props: Props) {
     </div>
   );
 }
-
-// export default (JustForYou)
 
 export default connect<StateProps, DispatchProps, OwnProps>(
   mapState,
