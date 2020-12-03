@@ -13,6 +13,10 @@ import { Typography } from '@material-ui/core';
 import { UPDATE_USER, UPDATE_HIKING_LEVEL } from '../../redux/action-types';
 import { User, HikingExperience, ActivityLevel, DailySteps, Hikes } from '../../common/model';
 import { calculateUserLevel } from '../../utils/helpers';
+import { makeStyles } from "@material-ui/core/styles";
+import InputLabel from '@material-ui/core/InputLabel';
+import Avatar from '@material-ui/core/Avatar';
+import * as _ from 'lodash';
 
 
 // type definitions
@@ -47,6 +51,19 @@ const mapDispatch = {
   updateUser: (payload) => ({ type: UPDATE_USER, payload}),
   updateHikingLevel : (payload) => ({type: UPDATE_HIKING_LEVEL, payload})
 }
+
+const useStyles = makeStyles({
+  textInput: {
+    width: '25ch',
+    margin: '10px',
+  },
+  titleBar: {
+    width: '100%',
+    backgroundColor: '#AB6B51',
+    height: '50px',
+  }
+})
+
 
 
 function TitleBarItem(props: Props) {
@@ -83,16 +100,21 @@ function TitleBarItem(props: Props) {
     handleCloseDialog();
   }
 
+  const classes = useStyles();
+
   const getUserPreferenceDialog = () => {
     return (
       <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">User Preferences</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              {props.user.age}
-              Enter your information to calculate your hiking level and get recommended hikes just for you.
+              {props.hikingLevel ? (
+                `Your current hiking level is ${props.hikingLevel}. 
+                Edit the information to recalculate your hiking level`) :
+              ( 'Enter your information to calculate your hiking level and get recommended hikes just for you.')}
             </DialogContentText>
             <TextField
+              className={classes.textInput}
               margin="dense"
               id="name"
               label="Name"
@@ -102,6 +124,7 @@ function TitleBarItem(props: Props) {
               onChange={(e) => setUserName(e.target.value)}
             />
             <TextField
+              className={classes.textInput}
               margin="dense"
               id="gender"
               label="Gender"
@@ -111,6 +134,7 @@ function TitleBarItem(props: Props) {
               onChange={(e) => setUserGender(e.target.value)}
             />
             <TextField
+              className={classes.textInput}
               margin="dense"
               id="age"
               label="Age"
@@ -120,6 +144,7 @@ function TitleBarItem(props: Props) {
               onChange={(e) => setUserAge(parseInt(e.target.value))}
             />
             <TextField
+              className={classes.textInput}
               margin="dense"
               id="zipcode"
               label="Zipcode"
@@ -128,7 +153,9 @@ function TitleBarItem(props: Props) {
               variant="outlined"
               onChange={(e) => setUserZipCode(parseInt(e.target.value))}
             />
+              <InputLabel id="dailySteps">Daily Steps</InputLabel>
               <Select
+                className={classes.textInput}
                 labelId="dailySteps"
                 id="dailySteps"
                 value={userAvgDailySteps}
@@ -142,7 +169,9 @@ function TitleBarItem(props: Props) {
                 <MenuItem value={DailySteps["5,001 - 10,000 steps/day"]}>5,001 - 10,000 steps/day</MenuItem>
                 <MenuItem value={DailySteps["10,001+ steps/day"]}>10,001+ steps/day</MenuItem>
               </Select>
+              <InputLabel id="activityLevel">Activity Level</InputLabel>
               <Select
+                className={classes.textInput}
                 labelId="activityLevel"
                 id="activityLevel"
                 variant="outlined"
@@ -157,14 +186,16 @@ function TitleBarItem(props: Props) {
                 <MenuItem value={ActivityLevel["There's mud on my hiking boots"]}>There's mud on my hiking boots</MenuItem>
                 <MenuItem value={ActivityLevel["I've got my Arc'terk, Osprey backpack, and Diamond hiking polls ready to go!"]}>I've got my Arc'terk, Osprey backpack, and Diamond hiking polls ready to go!</MenuItem>
               </Select>
+              <InputLabel id="hikingExperience">Hiking Experience</InputLabel>
               <Select
+                className={classes.textInput}
                 labelId="hikingExperience"
                 id="hikingExperience"
                 variant="outlined"
                 autoWidth={true}
                 value={userHikingExperience}
                 onChange={(e) => setUserHikingExperience(e.target.value as number)}
-                label="Hiking hikingExperience"
+                label="Hiking Experience"
               >
                 <MenuItem value={HikingExperience["0 hikes"]}>0 hikes</MenuItem>
                 <MenuItem value={HikingExperience["1 - 5 hikes"]}>1 - 5 hikes</MenuItem>
@@ -178,7 +209,7 @@ function TitleBarItem(props: Props) {
               Cancel
             </Button>
             <Button onClick={handleCalculateActivityLevel} color="primary">
-              Calculate Activity Level
+              {props.hikingLevel != null ? ('Recalculate Activity Level') : ('Calculate Activity Level') }
             </Button>
           </DialogActions>
         </Dialog>
@@ -193,10 +224,13 @@ function TitleBarItem(props: Props) {
         User Preferences
       </Button>
       { props.hikingLevel != null ?  
-             (<Typography variant="body1" gutterBottom> Hiking Level: {props.hikingLevel}</Typography>) : null
+             (
+               <div>
+             <Avatar>{_.first(props.user.name)}</Avatar>
+             <Typography variant="body1" gutterBottom> Hiking Level: {props.hikingLevel}</Typography>
+             </div>) : null
 
       }
-      <Typography variant="body1" gutterBottom> {props.hikingLevel}</Typography>
       {getUserPreferenceDialog()}
     </div>
   );
