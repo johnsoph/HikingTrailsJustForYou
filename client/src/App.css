@@ -26,10 +26,6 @@ body{
   font-size: 16px;
 }
 
-.SignUpButton {
-  margin-right: 20px;
-}
-
 .container{
   display: grid;
   grid-template-columns: 40vw 1fr;
