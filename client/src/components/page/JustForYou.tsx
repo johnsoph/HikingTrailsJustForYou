@@ -13,7 +13,9 @@ import FormControl from '@material-ui/core/FormControl';
 import { UPDATE_FILTER } from '../../redux/action-types';
 import { Filter, FilterType, Hikes, ZipCoords } from '../../common/model';
 import { number } from 'prop-types';
-import { callZipAPI, loadHikesByZip } from '../../utils/zipCoords'
+import { callZipAPI, loadHikesByZip } from '../../utils/zipCoords';
+import { callAPI } from '../../utils/api';
+
 
 // import FilterBarItem from '../FilterBarItem';
 
@@ -59,8 +61,10 @@ function JustForYou(props: Props) {
 
   const handleCloseDialog = () => {
     callZipAPI((document.getElementById("zipCode") as HTMLInputElement).value);
-    debugger
-    loadHikesByZip(props.coords);
+    // const newCoords = props.coords.locations[0].latLng;
+    // callAPI(newCoords.lat, newCoords.lng);
+    // debugger;
+    // loadHikesByZip(props.coords);
     setOpenDialog(false);
   };
 
