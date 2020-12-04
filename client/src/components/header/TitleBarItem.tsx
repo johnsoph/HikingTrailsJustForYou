@@ -10,6 +10,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Typography } from '@material-ui/core';
+import JustForYou from '../../components/page/JustForYou'
 import { UPDATE_USER, UPDATE_HIKING_LEVEL } from '../../redux/action-types';
 import { User, HikingExperience, ActivityLevel, DailySteps, Hikes } from '../../common/model';
 import { calculateUserLevel } from '../../utils/helpers';
@@ -218,28 +219,35 @@ function TitleBarItem(props: Props) {
   
   return (
     <div>
-      <Typography className="WebsiteTitle" variant="h3" gutterBottom >PataGucci</Typography>
-      {/* <Typography variant="body1" gutterBottom >{props.user}</Typography> */}
-      <Button className="SignUpButton" variant="contained" onClick={handleClickOpenDialog}>
-        User Preferences
-      </Button>
+      <div className="header-box">
+        <h1 className="primary-header">
+          <span className="primary-header-main">patagucci</span>
+          <span className="primary-header-sub">find your trail</span>
+        </h1>
+      </div>
+      <div className="options-box">
+        <div className='SignUpButton'>
+          <Button style={{fontFamily: 'Concert One', marginRight: '15px'}} variant="contained" onClick={handleClickOpenDialog}>
+          User Preferences
+        </Button>
       { props.hikingLevel != null ?  
              (
                <div>
              <Avatar>{_.first(props.user.name)}</Avatar>
              <Typography variant="body1" gutterBottom> Hiking Level: {props.hikingLevel}</Typography>
              </div>) : null
-
       }
+      </div>
       {getUserPreferenceDialog()}
+      <JustForYou />
+      </div>
+
     </div>
   );
 }
 
 // export default connector(TitleBarItem)
-
 export default connect<StateProps, DispatchProps, OwnProps>(
   mapState,
   mapDispatch
 )(TitleBarItem)
-

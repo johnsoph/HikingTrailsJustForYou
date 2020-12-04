@@ -13,9 +13,11 @@ const useStyles = makeStyles({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    textShadow: '0 0 1px white, 0 0 1px white, 0 0 1px white',
+    color: 'white',
+    textShadow: '0 0 1px black, 0 0 1px black, 0 0 1px black',
   },
   buttonText: {
+    fontFamily: 'Concert One',
     textAlign: 'center',
     lineHeight: '125%',
 
