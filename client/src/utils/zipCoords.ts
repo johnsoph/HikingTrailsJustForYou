@@ -1,8 +1,12 @@
+import React, { useState } from 'react';
 import store from '../redux/store'
+import { connect, ConnectedProps, shallowEqual, useSelector } from "react-redux";
 import { initCoords } from '../redux/actions'
+import { callAPI } from '../utils/api';
+import { ZipCoords } from '../common/model';
 
 
-export function callZipAPI(address){
+export async function callZipAPI(address){
 address = `http://open.mapquestapi.com/geocoding/v1/address?key=tt714D6ycWMbGq0gRvHf6V7l5bAHKyzs&location=United+States+${address}`; 
 
 fetch(address)
@@ -11,6 +15,8 @@ fetch(address)
       .then(
         (result) => {
             store.dispatch(initCoords(result.results))
+            const newCoords = result.results[0].locations[0].latLng;
+            callAPI(newCoords.lat, newCoords.lng);
         //   this.setState({
         //     isLoaded: true,
         //     items: result.items
@@ -28,3 +34,13 @@ fetch(address)
         }
       )
     }
+
+
+    // const rstore = store.getState();
+
+    export function loadHikesByZip(coords:ZipCoords){
+     const newCoords = coords.locations[0].latLng
+     callAPI(newCoords.lat, newCoords.lng)
+     debugger
+  }
+

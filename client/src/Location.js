@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { callAPI } from './utils/api';
 
+
 class GetCoords extends Component {
   constructor(props) {
     super(props);
@@ -40,8 +41,6 @@ class GetCoords extends Component {
   render() {
     return (
     <div>
-        <div>Latitude: { this.state.lastLat } </div>
-        <div>Longitude: { this.state.lastLong } </div>
     </div>
     )
   }

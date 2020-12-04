@@ -4,8 +4,6 @@ import TitleBarItem from './components/header/TitleBarItem'
 import HikeListContainer from './components/page/HikeListContainer'
 import Location from './Location'
 import JustForYou from './components/page/JustForYou'
-import { callAPI } from './utils/api'
-import { callZipAPI } from './utils/zipCoords'
 import { Filter, FilterType} from './common/model'
 import Toggle from './Toggle';
 
@@ -21,7 +19,6 @@ function App() {
 
   var lat = 0
   var longt = 0
-
 
   navigator.geolocation.getCurrentPosition(function(position) {
     lat  = position.coords.latitude

@@ -57,6 +57,19 @@ export interface Hikes {
     url: string;
 }
 
+export interface ZipCoords{
+    locations: Locations[]
+}
+
+export interface Locations{
+    latLng: LatLng;
+}
+
+export interface LatLng{
+    lat: number;
+    lng: number;
+}
+
 export interface Filter {
     // desiredHikes: Hikes[];
     filterType: FilterType;

@@ -11,8 +11,11 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { Typography, Select, MenuItem } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import { UPDATE_FILTER } from '../../redux/action-types';
-import { Filter, FilterType, Hikes } from '../../common/model';
+import { Filter, FilterType, Hikes, ZipCoords } from '../../common/model';
 import { number } from 'prop-types';
+import { callZipAPI, loadHikesByZip } from '../../utils/zipCoords';
+import { callAPI } from '../../utils/api';
+
 
 // import FilterBarItem from '../FilterBarItem';
 
@@ -20,6 +23,7 @@ import { number } from 'prop-types';
 // type definitions
 interface StateProps {
   filter: Filter;
+  coords: ZipCoords;
   // disiredHikes: Hikes;
 }
 
@@ -37,7 +41,8 @@ type Props = StateProps & DispatchProps & OwnProps
 
 // redux state objects
 const mapState = (state: any) => ({
-  filter: state.filter
+  filter: state.filter,
+  coords: state.coords
 });
 
 // actions
@@ -55,7 +60,11 @@ function JustForYou(props: Props) {
   };
 
   const handleCloseDialog = () => {
-
+    callZipAPI((document.getElementById("zipCode") as HTMLInputElement).value);
+    // const newCoords = props.coords.locations[0].latLng;
+    // callAPI(newCoords.lat, newCoords.lng);
+    // debugger;
+    // loadHikesByZip(props.coords);
     setOpenDialog(false);
   };
 
@@ -95,7 +104,7 @@ function JustForYou(props: Props) {
                     <MenuItem value={2}>Best Match, My Fitness Level</MenuItem>
                     <MenuItem value={3}>Challenge Me</MenuItem>
                 </Select>
-                <input type="text" placeholder="Zip Code"/>
+                <input type="text" placeholder="Zip Code" id="zipCode" />
             </FormControl>
           </DialogContent>
           <DialogActions>
