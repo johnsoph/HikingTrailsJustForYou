@@ -5,10 +5,12 @@ import { UPDATE_USER } from '../../redux/action-types';
 // import { DEFAULT_HIKES } from '../../common/mockHikes';
 import HikeInfoItem from './HikeInfoItem';
 import HikeBoxItem from './HikeBoxItem';
+import * as _ from 'lodash';
 
 // type definitions
 interface StateProps {
   hikes: Hikes[],
+  filter: Filter
   // filter: Filter;
 }
 
@@ -27,7 +29,7 @@ type Props = StateProps & DispatchProps & OwnProps
 // redux state objects
 const mapState = (state: any) => ({
   hikes: state.hikes,
-  // filter: state.filteredHikes
+  filter: state.filter
 })
 
 // actions
@@ -54,11 +56,30 @@ function HikeListContainer(props: Props) {
           destination={`${selectedHike?.latitude},${selectedHike?.longitude}`}
         />
     }
+
+    // const newlist = [];
+    // iterate through current list 
+    // for(let hikeDifficulty of props.hikes){
+    //   console.log(hikeDifficulty.difficulty)
+    //   if (hikeDifficulty.difficulty in props.filter.desiredHikes){
+    //     newlist.push(props.)
+    //   }
+    // }
+
+    let newList: Hikes[] = []
+    if(_.get(props.filter,"desiredHikes")) {
+      _.forEach(props.hikes, (el: Hikes) => {
+      if(el.difficulty in props.filter.desiredHikes) {
+        newList.push(el)
+      } 
+    }) 
+  }
     
 
-    return filterSelection !== FilterType.None ? (
+    // compare hike difficulty to desired hikes  
+    // if not in disired hikes,  pop it
+    return (
     
-
         <>
         <div className="HikeList">
           {hikes.map((hike,index) => (
@@ -75,7 +96,7 @@ function HikeListContainer(props: Props) {
           {renderInfoPanel()}
         </div>
       </>
-    ) : null
+    )
 }
 
 // Typical usage: `connect` is called after the component is defined

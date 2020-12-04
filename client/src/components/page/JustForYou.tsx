@@ -8,7 +8,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
-import { Typography, Select, MenuItem } from '@material-ui/core';
+import { Select, MenuItem } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import { UPDATE_FILTER } from '../../redux/action-types';
 import { Filter, HikingLevel } from '../../common/model';
@@ -75,6 +75,8 @@ function JustForYou(props: Props) {
     
     // close dialog box
     handleCloseDialog();
+
+    
   };
 
   const handleChange = (e) => {

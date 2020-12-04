@@ -27,7 +27,7 @@ export function calculateUserLevel(user: User): number {
 export function filterHikes(filterSelection: number, hikingLevel): Array<string>{
     let hikeDifficulty : Array<string> = [];
     let desiredHikes : number = filterSelection + hikingLevel;
-    const HDiffs = ["green", "greenBlue", "blue", "blueBlack", "black", "blackBlack", "nearby"];
+    const HDiffs = ["green", "greenBlue", "blue", "blueBlack", "black", "dblack", "nearby"];
 
     // filterSelection      0 = Nearby
     //                      1 = Easy and Chill
