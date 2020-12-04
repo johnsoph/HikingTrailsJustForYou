@@ -46,6 +46,9 @@ function HikeListContainer(props: Props) {
     const [hikes, setHikes] = useState(props.hikes)
     const selectedHike = hikes[selectedHikeIndex]
 
+    useEffect(() => {
+      setHikes(props.hikes)
+    }, [props.hikes]);
     // TODO BUG- filterSelection value does not get updated with State changes from Just for you
 
     const renderInfoPanel = ()=>{
@@ -72,12 +75,13 @@ function HikeListContainer(props: Props) {
   }
     // compare hike difficulty to desired hikes  
     // if not in disired hikes,  pop it
-    const hikeList = _.size(newList) > 0 ? newList : hikes;
+    // const hikeList = _.size(newList) > 0 ? newList : hikes;
+    
     return (
     
         <>
         <div className="HikeList">
-          {hikeList.map((hike,index) => (
+          {hikes.map((hike,index) => (
             <HikeBoxItem
               key={index}
               name={hike?.name}

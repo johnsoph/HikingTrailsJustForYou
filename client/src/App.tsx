@@ -41,10 +41,11 @@ function App() {
       </div>
       <div className="filterBar">
       <div className="toggleButton">
-          <Toggle label="User Hikes" onChange={setShowHikes}/> 
+          {/* <Toggle label="User Hikes" onChange={setShowHikes}/>  */}
           </div>
       </div>
-        {showHikes ? (<HikeListContainer />) : null }
+        {/* {showHikes ? (<HikeListContainer />) : null } */}
+        <HikeListContainer />
       <div>
         <Location/>
       </div>

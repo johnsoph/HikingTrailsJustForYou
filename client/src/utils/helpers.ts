@@ -41,7 +41,7 @@ export function filterHikes(filterSelection: number, hikingLevel): string[]{
     // blueBlack
     // black        - guess
     // blackBlack   - guess
-    debugger;
+    // debugger;
 
     if(filterSelection === 0){
         hikeDifficulty.push(HDiffs[6])
