@@ -123,6 +123,7 @@ function JustForYou(props: Props) {
     <div>
        <Button 
        className="JustForYouButton" 
+       style={{fontFamily: 'Concert One'}}
        variant="contained" 
        onClick={handleClickOpenDialog}>
         Just For You Hikes

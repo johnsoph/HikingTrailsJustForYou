@@ -36,12 +36,9 @@ function App() {
         <TitleBarItem/>
       </div>
       <div className="filterBar">
-      <div>
-        <JustForYou />
-      </div>
       <div className="toggleButton">
-          <Toggle label="Just For You Hikes" onChange={setShowHikes}/>
-        </div>
+          <Toggle label="User Hikes" onChange={setShowHikes}/> 
+          </div>
       </div>
         {showHikes ? (<HikeListContainer />) : null }
       <div>
