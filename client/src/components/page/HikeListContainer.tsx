@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { Hikes, FilterType, Filter } from '../../common/model';
 import { UPDATE_USER } from '../../redux/action-types';
-import { DEFAULT_HIKES } from '../../common/mockHikes';
+// import { DEFAULT_HIKES } from '../../common/mockHikes';
 import HikeInfoItem from './HikeInfoItem';
 import HikeBoxItem from './HikeBoxItem';
 
 // type definitions
 interface StateProps {
   hikes: Hikes[],
-  filteredHikes: Filter,
+  // filter: Filter;
 }
 
 // type definiton
@@ -27,7 +27,7 @@ type Props = StateProps & DispatchProps & OwnProps
 // redux state objects
 const mapState = (state: any) => ({
   hikes: state.hikes,
-  filteredHikes: state.filteredHikes
+  // filter: state.filteredHikes
 })
 
 // actions
@@ -36,10 +36,11 @@ const mapDispatch = {
 }
 
 function HikeListContainer(props: Props) {
-    const [filterSelection, setFilterSection] = useState(props.filteredHikes?.filterType)
+    const [filterSelection, setFilterSection] = useState(1);
     const [selectedHikeIndex, setSelectedHikeIndex] = useState(0)
     const [hikes, setHikes] = useState(props.hikes)
     const selectedHike = hikes[selectedHikeIndex]
+
     const renderInfoPanel = ()=>{
         return <HikeInfoItem
           name={selectedHike?.name}
@@ -53,6 +54,7 @@ function HikeListContainer(props: Props) {
           destination={`${selectedHike?.latitude},${selectedHike?.longitude}`}
         />
     }
+    
 
     return filterSelection !== FilterType.None ? (
     

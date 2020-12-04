@@ -58,8 +58,11 @@ export interface Hikes {
 }
 
 export interface Filter {
-    // desiredHikes: Hikes[];
-    filterType: FilterType;
+    desiredHikes: Array<string>;
+}
+
+export interface HikingLevel{
+    hikingLevel: any;
 }
 
 

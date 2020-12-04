@@ -11,10 +11,10 @@ import { Filter, FilterType} from './common/model'
 
 function App() {
   
-  const filterSelection: Filter = {
-    // desiredHikes: [],
-    filterType: 0
-  }  
+  // const filterSelection: Filter = {
+  //   desiredHikes: [],
+  //   filterType: 0
+  // }  
 
   var lat = 0
   var longt = 0
@@ -27,22 +27,17 @@ function App() {
     console.log("Longitude is :", position.coords.longitude);
   });
 
-  callAPI();
-  callZipAPI(97701);
+  //callZipAPI(97701);
 
   return (
     <div className="container">
       <div className="titleBar">
         <TitleBarItem/>
       </div>
-
       <div className="filterBar">
         <JustForYou />
-        {/* <div className="toggleButton">
-          { <Toggle label="Just For You Hikes" onChange={setShowHikes}/>}
-        </div> */}
       </div>
-      <HikeListContainer />
+      <HikeListContainer/>
       <div>
         <Location/>
       </div>
