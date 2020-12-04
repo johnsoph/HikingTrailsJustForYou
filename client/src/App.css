@@ -252,5 +252,10 @@ input:checked + .slider:before {
 .hover {
     background-color: white;
     border-style: solid;
+    color: black;
     border-color: hsl(27, 82%, 51%);
+}
+
+.gear-rec {
+  color: black;
 }
