@@ -64,6 +64,7 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
           </span>
           {recommendedGear.filter(rec => rec.difficultyLevel === subDif.difficulty && rec.season === subSeason.season).map(recGot =>(
           <ul>
+            <span className="gear-rec">
             <ReactHover options={optionsCursorTrueWithMargin}>
                 <Trigger type="trigger">
                   <li> Clothing: {recGot.clothing} </li>
@@ -96,6 +97,7 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
                   <HoverComponent explantion={recGot.shoesReason}/>
                 </Hover>
             </ReactHover>
+            </span>
           </ul>
           ))}
         </Collapsible>
