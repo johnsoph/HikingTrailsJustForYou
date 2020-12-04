@@ -74,15 +74,14 @@ function HikeListContainer(props: Props) {
       } 
     }) 
   }
-    
-
     // compare hike difficulty to desired hikes  
     // if not in disired hikes,  pop it
+    const hikeList = _.size(newList) > 0 ? newList : hikes;
     return (
     
         <>
         <div className="HikeList">
-          {hikes.map((hike,index) => (
+          {hikeList.map((hike,index) => (
             <HikeBoxItem
               key={index}
               name={hike?.name}
