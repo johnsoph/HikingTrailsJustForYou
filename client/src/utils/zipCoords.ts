@@ -14,7 +14,6 @@ fetch(address)
     .then(res => res.json())
       .then(
         (result) => {
-          debugger;
             store.dispatch(initCoords(result.results))
             const newCoords = result.results[0].locations[0].latLng;
             callAPI(newCoords.lat, newCoords.lng);
