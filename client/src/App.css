@@ -41,7 +41,7 @@ body{
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  justify-content: right;
+  justify-content: flex-end;
   
 }
 
@@ -57,6 +57,10 @@ body{
 .primary-header {
   color: #fff;
   font-family: BelweBold;
+}
+
+.toggleButton {
+  justify-content: right;
 }
 
 .primary-header-main {
