@@ -41,6 +41,6 @@ fetch(address)
     export function loadHikesByZip(coords:ZipCoords){
      const newCoords = coords.locations[0].latLng
      callAPI(newCoords.lat, newCoords.lng)
-     debugger
+    //  debugger
   }
 

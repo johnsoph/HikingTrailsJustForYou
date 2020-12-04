@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from "react-redux";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -8,28 +8,30 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
-import { Typography, Select, MenuItem } from '@material-ui/core';
+import { Select, MenuItem } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import { UPDATE_FILTER } from '../../redux/action-types';
-import { Filter, FilterType, Hikes, ZipCoords } from '../../common/model';
+import { FilterType, Hikes, ZipCoords, HikingLevel } from '../../common/model';
+import { filterHikes } from '../../utils/helpers';
 import { number } from 'prop-types';
 import { callZipAPI, loadHikesByZip } from '../../utils/zipCoords';
 import { callAPI } from '../../utils/api';
-
 
 // import FilterBarItem from '../FilterBarItem';
 
 
 // type definitions
 interface StateProps {
-  filter: Filter;
+  desiredHikes: string[];
+  hikingLevel: HikingLevel;
   coords: ZipCoords;
+
   // disiredHikes: Hikes;
 }
 
 // type definiton
 interface DispatchProps {
-  updateFilter: (payload: Filter) => void
+  updateFilter: (payload: string[]) => void
 }
 
 // type definition
@@ -41,8 +43,10 @@ type Props = StateProps & DispatchProps & OwnProps
 
 // redux state objects
 const mapState = (state: any) => ({
-  filter: state.filter,
-  coords: state.coords
+  desiredHikes: state.filter,
+  hikingLevel: state.hikingLevel,
+  coords: state.coords,
+
 });
 
 // actions
@@ -53,7 +57,7 @@ const mapDispatch = {
 
 function JustForYou(props: Props) {
   const [openDialog, setOpenDialog] = React.useState(false);
-  const [filterSelection, setFilterSelection] = React.useState(props.filter?.filterType);
+  const [filterSelection, setFilterSelection] = useState(0);
 
   const handleClickOpenDialog = () => {
     setOpenDialog(true);
@@ -69,15 +73,19 @@ function JustForYou(props: Props) {
   };
 
   const handleSave = () => {
-    const newItem = {
-      desiredHikes: [],
-      filterType: filterSelection
-    }
+    // console.log("hikingLevel: ", props.hikingLevel);
+    // let temp = props.hikingLevel;
+    let hikeDifficultyOptions: string[] = filterHikes(filterSelection, props.hikingLevel)
+    // console.log("JFY:", hikeDifficultyOptions);
+    // debugger;
+    // const newItem = hikeDifficultyOptions;
     // save selected value
-    props.updateFilter(newItem)
+    props.updateFilter(hikeDifficultyOptions)
     
     // close dialog box
     handleCloseDialog();
+
+    
   };
 
   const handleChange = (e) => {
@@ -109,11 +117,11 @@ function JustForYou(props: Props) {
           </DialogContent>
           <DialogActions>
           <Button onClick={handleSave} color="primary">
-              Save
-            </Button>
-            <Button onClick={handleCloseDialog} color="primary">
-              Cancel
-            </Button>
+            Save
+          </Button>
+          <Button onClick={handleCloseDialog} color="primary">
+            Cancel
+          </Button>
           </DialogActions>
         </Dialog>
     )
@@ -132,8 +140,6 @@ function JustForYou(props: Props) {
     </div>
   );
 }
-
-// export default (JustForYou)
 
 export default connect<StateProps, DispatchProps, OwnProps>(
   mapState,
