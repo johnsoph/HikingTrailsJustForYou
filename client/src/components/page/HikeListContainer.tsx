@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
-import { Hikes, FilterType, Filter } from '../../common/model';
+import { Hikes, FilterType } from '../../common/model';
 import { UPDATE_USER } from '../../redux/action-types';
 // import { DEFAULT_HIKES } from '../../common/mockHikes';
 import HikeInfoItem from './HikeInfoItem';
@@ -10,7 +10,7 @@ import * as _ from 'lodash';
 // type definitions
 interface StateProps {
   hikes: Hikes[],
-  filter: Filter
+  desiredHikes: string[]
   // filter: Filter;
 }
 
@@ -29,8 +29,11 @@ type Props = StateProps & DispatchProps & OwnProps
 // redux state objects
 const mapState = (state: any) => ({
   hikes: state.hikes,
-  filter: state.filter
+  // filter: state.filter
+  desiredHikes: state.desiredHikes,
+
 })
+
 
 // actions
 const mapDispatch = {
@@ -42,6 +45,8 @@ function HikeListContainer(props: Props) {
     const [selectedHikeIndex, setSelectedHikeIndex] = useState(0)
     const [hikes, setHikes] = useState(props.hikes)
     const selectedHike = hikes[selectedHikeIndex]
+
+    // TODO BUG- filterSelection value does not get updated with State changes from Just for you
 
     const renderInfoPanel = ()=>{
         return <HikeInfoItem
@@ -57,19 +62,10 @@ function HikeListContainer(props: Props) {
         />
     }
 
-    // const newlist = [];
-    // iterate through current list 
-    // for(let hikeDifficulty of props.hikes){
-    //   console.log(hikeDifficulty.difficulty)
-    //   if (hikeDifficulty.difficulty in props.filter.desiredHikes){
-    //     newlist.push(props.)
-    //   }
-    // }
-
     let newList: Hikes[] = []
-    if(_.get(props.filter,"desiredHikes")) {
+    if(_.get(props.desiredHikes)) {
       _.forEach(props.hikes, (el: Hikes) => {
-      if(el.difficulty in props.filter.desiredHikes) {
+      if(el.difficulty in props.desiredHikes) {
         newList.push(el)
       } 
     }) 

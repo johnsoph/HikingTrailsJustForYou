@@ -11,22 +11,27 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { Select, MenuItem } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import { UPDATE_FILTER } from '../../redux/action-types';
-import { Filter, HikingLevel } from '../../common/model';
+import { FilterType, Hikes, ZipCoords, HikingLevel } from '../../common/model';
 import { filterHikes } from '../../utils/helpers';
+import { number } from 'prop-types';
+import { callZipAPI, loadHikesByZip } from '../../utils/zipCoords';
+import { callAPI } from '../../utils/api';
 
 // import FilterBarItem from '../FilterBarItem';
 
 
 // type definitions
 interface StateProps {
-  filter: Filter;
+  desiredHikes: string[];
   hikingLevel: HikingLevel;
+  coords: ZipCoords;
+
   // disiredHikes: Hikes;
 }
 
 // type definiton
 interface DispatchProps {
-  updateFilter: (payload: Filter) => void
+  updateFilter: (payload: string[]) => void
 }
 
 // type definition
@@ -38,8 +43,10 @@ type Props = StateProps & DispatchProps & OwnProps
 
 // redux state objects
 const mapState = (state: any) => ({
-  filter: state.filter,
-  hikingLevel: state.hikingLevel
+  desiredHikes: state.filter,
+  hikingLevel: state.hikingLevel,
+  coords: state.coords,
+
 });
 
 // actions
@@ -57,7 +64,11 @@ function JustForYou(props: Props) {
   };
 
   const handleCloseDialog = () => {
-
+    callZipAPI((document.getElementById("zipCode") as HTMLInputElement).value);
+    // const newCoords = props.coords.locations[0].latLng;
+    // callAPI(newCoords.lat, newCoords.lng);
+    // debugger;
+    // loadHikesByZip(props.coords);
     setOpenDialog(false);
   };
 
@@ -67,11 +78,9 @@ function JustForYou(props: Props) {
     let hikeDifficultyOptions: string[] = filterHikes(filterSelection, props.hikingLevel)
     // console.log("JFY:", hikeDifficultyOptions);
     debugger;
-    const newItem = {
-      desiredHikes: hikeDifficultyOptions
-    }
+    // const newItem = hikeDifficultyOptions;
     // save selected value
-    props.updateFilter(newItem)
+    props.updateFilter(hikeDifficultyOptions)
     
     // close dialog box
     handleCloseDialog();
@@ -84,7 +93,6 @@ function JustForYou(props: Props) {
   }
 
   const getJustForYouDialog = () => {
-    debugger;
     return (
       <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">Just For You Settings</DialogTitle>
@@ -104,7 +112,7 @@ function JustForYou(props: Props) {
                     <MenuItem value={2}>Best Match, My Fitness Level</MenuItem>
                     <MenuItem value={3}>Challenge Me</MenuItem>
                 </Select>
-                <input type="text" placeholder="Zip Code"/>
+                <input type="text" placeholder="Zip Code" id="zipCode" />
             </FormControl>
           </DialogContent>
           <DialogActions>
@@ -123,6 +131,7 @@ function JustForYou(props: Props) {
     <div>
        <Button 
        className="JustForYouButton" 
+       style={{fontFamily: 'Concert One'}}
        variant="contained" 
        onClick={handleClickOpenDialog}>
         Just For You Hikes

@@ -1,14 +1,16 @@
 import { INIT_HIKES, INIT_COORDS, UPDATE_USER, UPDATE_FILTER, UPDATE_HIKING_LEVEL } from "../redux/action-types";
-import { User, Hikes, Filter } from '../common/model';
+import { User, Hikes, ZipCoords } from '../common/model';
+import GetCoords from "../Location";
 
 interface State {
     hikes: Hikes[];
     user: User;
     gear: any;
+    coords:  ZipCoords;
 
     // the array of hikes filtered down based on the string value 
     // example: easy_and_chill, challenge_me ...
-    filteredHikes: Filter;
+    desiredHikes: string[];
     hikingLevel: number | null;
 }
 
@@ -25,9 +27,18 @@ const initialState = {
     },
     // TODO -- KALISE INSERT GEAR 
     gear: {},
-    filteredHikes: {
-        desiredHikes: [],
+    coords:{
+        locations: [{
+            latLng: {
+                lat: 0,
+                lng: 0
+            }
+        }]
     },
+    // coords: [],
+
+    desiredHikes: [],
+
     hikingLevel: null,
 };
 
@@ -56,10 +67,6 @@ export default function(state: State = initialState, action) {
         }; 
 
         case UPDATE_FILTER: {
-            // const result = {
-            //     desiredHikes: [],
-            //     filterType: action.payload,
-            // }
             
             return {
                 ...state,
