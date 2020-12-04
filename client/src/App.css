@@ -252,5 +252,21 @@ input:checked + .slider:before {
 .hover {
     background-color: white;
     border-style: solid;
+    color: black;
     border-color: hsl(27, 82%, 51%);
+}
+
+.gear-rec {
+  color: black;
+}
+
+.avatar-bar{
+  grid-area: filter;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.avatar-icon{
+  margin-right: 20px;
+  align-items: center;
 }

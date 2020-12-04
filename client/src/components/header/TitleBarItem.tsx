@@ -230,19 +230,21 @@ function TitleBarItem(props: Props) {
           <Button style={{fontFamily: 'Concert One', marginRight: '15px'}} variant="contained" onClick={handleClickOpenDialog}>
           User Preferences
         </Button>
+        </div>
+        <JustForYou />
+      </div>
+        <div className="avatar-bar">
       { props.hikingLevel != null ?  
              (
-               <div>
+               <div className="avatar-icon">
              <Avatar>{_.first(props.user.name)}</Avatar>
              <Typography variant="body1" gutterBottom> Hiking Level: {props.hikingLevel}</Typography>
              </div>) : null
       }
       </div>
-      {getUserPreferenceDialog()}
-      <JustForYou />
-      </div>
 
-    </div>
+      {getUserPreferenceDialog()}
+      </div>
   );
 }
 

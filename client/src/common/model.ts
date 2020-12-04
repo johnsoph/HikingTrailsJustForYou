@@ -70,9 +70,12 @@ export interface LatLng{
     lng: number;
 }
 
-export interface Filter {
-    // desiredHikes: Hikes[];
-    filterType: FilterType;
+// export interface Filter {
+//     desiredHikes: string[];
+// }
+
+export interface HikingLevel{
+    hikingLevel: any;
 }
 
 

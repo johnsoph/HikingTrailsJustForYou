@@ -49,6 +49,7 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
         </div>
         <DirectionsButton destination={destination} />
         <Collapsible trigger="Gear Recommendations">
+          <span className="gear-rec">
           <p> Always Think About Bring: </p>
           <ul>
           <li> A Large Backpack </li>
@@ -60,8 +61,10 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
           <li> Emergency Fire Starting tools like Matches, Lighter, and/or Tinder </li>
           </ul>
           <p> For this Hike(Hover for more Info!): </p>
+          </span>
           {recommendedGear.filter(rec => rec.difficultyLevel === subDif.difficulty && rec.season === subSeason.season).map(recGot =>(
           <ul>
+            <span className="gear-rec">
             <ReactHover options={optionsCursorTrueWithMargin}>
                 <Trigger type="trigger">
                   <li> Clothing: {recGot.clothing} </li>
@@ -94,6 +97,7 @@ export default function HikeInfoItem({ name,summary,difficulty,rating,town,lengt
                   <HoverComponent explantion={recGot.shoesReason}/>
                 </Hover>
             </ReactHover>
+            </span>
           </ul>
           ))}
         </Collapsible>

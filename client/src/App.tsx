@@ -4,17 +4,18 @@ import TitleBarItem from './components/header/TitleBarItem'
 import HikeListContainer from './components/page/HikeListContainer'
 import Location from './Location'
 import JustForYou from './components/page/JustForYou'
-import { Filter, FilterType} from './common/model'
 import Toggle from './Toggle';
 
 
 function App() {
   
-  const filterSelection: Filter = {
-    // desiredHikes: [],
-    filterType: 0
-  }  
+  // const filterSelection: Filter = {
+  //   desiredHikes: [],
+  //   filterType: 0
+  // }  
+
   const [showHikes, setShowHikes] = useState(false)
+
 
 
   var lat = 0
@@ -27,8 +28,11 @@ function App() {
     console.log("Longitude is :", position.coords.longitude);
   });
 
-  // console.log("filterType is 0?:", filterSelection.filterType === FilterType.None)
+
+  //callZipAPI(97701);
+ // console.log("filterType is 0?:", filterSelection.filterType === FilterType.None)
   // console.log("Current filtertype:", filterSelection.filterType)
+
 
   return (
     <div className="container">
@@ -37,10 +41,11 @@ function App() {
       </div>
       <div className="filterBar">
       <div className="toggleButton">
-          <Toggle label="User Hikes" onChange={setShowHikes}/> 
+          {/* <Toggle label="User Hikes" onChange={setShowHikes}/>  */}
           </div>
       </div>
-        {showHikes ? (<HikeListContainer />) : null }
+        {/* {showHikes ? (<HikeListContainer />) : null } */}
+        <HikeListContainer />
       <div>
         <Location/>
       </div>
