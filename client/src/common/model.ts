@@ -58,7 +58,7 @@ export interface Hikes {
 }
 
 export interface Filter {
-    desiredHikes: Array<string>;
+    desiredHikes: string[];
 }
 
 export interface HikingLevel{
