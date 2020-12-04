@@ -11,7 +11,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { Typography, Select, MenuItem } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import { UPDATE_FILTER } from '../../redux/action-types';
-import { Filter, FilterType, Hikes } from '../../common/model';
+import { Filter, FilterType, Hikes, ZipCoords } from '../../common/model';
 import { number } from 'prop-types';
 import { callZipAPI, loadHikesByZip } from '../../utils/zipCoords'
 
@@ -21,6 +21,7 @@ import { callZipAPI, loadHikesByZip } from '../../utils/zipCoords'
 // type definitions
 interface StateProps {
   filter: Filter;
+  coords: ZipCoords;
   // disiredHikes: Hikes;
 }
 
@@ -38,7 +39,8 @@ type Props = StateProps & DispatchProps & OwnProps
 
 // redux state objects
 const mapState = (state: any) => ({
-  filter: state.filter
+  filter: state.filter,
+  coords: state.coords
 });
 
 // actions
@@ -57,7 +59,8 @@ function JustForYou(props: Props) {
 
   const handleCloseDialog = () => {
     callZipAPI((document.getElementById("zipCode") as HTMLInputElement).value);
-    loadHikesByZip();
+    debugger
+    loadHikesByZip(props.coords);
     setOpenDialog(false);
   };
 

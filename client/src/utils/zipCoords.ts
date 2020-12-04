@@ -3,6 +3,7 @@ import store from '../redux/store'
 import { connect, ConnectedProps, shallowEqual, useSelector } from "react-redux";
 import { initCoords } from '../redux/actions'
 import { callAPI } from '../utils/api';
+import { ZipCoords } from '../common/model';
 
 
 export function callZipAPI(address){
@@ -33,11 +34,11 @@ fetch(address)
     }
 
 
-    const Coords = store.getState();
+    // const rstore = store.getState();
 
-
-    export function loadHikesByZip(){
-     const coords = Coords.coords.locations.latLng
-     callAPI(coords.lat, coords.lng)
+    export function loadHikesByZip(coords:ZipCoords){
+     const newCoords = coords.locations[0].latLng
+     callAPI(newCoords.lat, newCoords.lng)
+     debugger
   }
 

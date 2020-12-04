@@ -58,16 +58,16 @@ export interface Hikes {
 }
 
 export interface ZipCoords{
-    locations: Locations;
+    locations: Locations[]
 }
 
 export interface Locations{
-    latLng: LatLng
+    latLng: LatLng;
 }
 
 export interface LatLng{
-    lat: string;
-    lng: string;
+    lat: number;
+    lng: number;
 }
 
 export interface Filter {

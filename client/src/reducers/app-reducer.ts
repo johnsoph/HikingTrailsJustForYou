@@ -28,12 +28,12 @@ const initialState = {
     // TODO -- KALISE INSERT GEAR 
     gear: {},
     coords:{
-        locations: {
+        locations: [{
             latLng: {
-                lat: '',
-                lng: ''
+                lat: 0,
+                lng: 0
             }
-        }
+        }]
     },
     // coords: [],
 
